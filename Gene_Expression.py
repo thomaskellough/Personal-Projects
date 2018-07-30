@@ -1,4 +1,4 @@
-import random
+from random import choice
 import logging
 
 logging.basicConfig(filename='gene_expression.log', level=logging.DEBUG,
@@ -37,13 +37,13 @@ codon_dict = {'Phe': ['UUU', 'UUC'],
               'Cys': ['UGU', 'UGC'],
               'Trp': ['UGG'],
               'Arg': ['CGU', 'CGC', 'CGA', 'CGG', 'AGA', 'AGG'],
-              'Gly': ['GGU', 'GCG', 'GGA', 'GGG'],
+              'Gly': ['GGU', 'GGC', 'GGA', 'GGG'],
               'STOP': ['UAA', 'UAG', 'UGA']}
 
 
-def dict_to_list(dict):
+def dict_to_list(dict_of_codons):
     codon_list = []
-    for k, v in dict.items():
+    for k, v in dict_of_codons.items():
         temp_list = []
         temp_list.extend([k, v])
         codon_list.append(temp_list)
@@ -51,9 +51,7 @@ def dict_to_list(dict):
 
 
 def create_random_sequence(number):
-    sequence = ''
-    for i in range(number):
-        sequence += random.choice(nucleotide_list)
+    sequence = ''.join(choice(nucleotide_list) for _ in range(number))
     return sequence
 
 
@@ -73,63 +71,52 @@ def transcribe(sequence):
     return mRNA
 
 
-def translate(sequence, start):
-    logging.debug('Translating mRNA')
-    logging.debug(f'Sequence entering:\n{sequence}')
-    logging.debug('Creating codon list from codon dictionary')
-    codons_list = dict_to_list(codon_dict)
-    codon_list = []
-    start = sequence.index(start_codon)
-    peptide_chain = sequence[start:]
-    initial_length = len(peptide_chain)
-    logging.debug(f'Initial length of the peptide chain is: {initial_length}')
+def translate(sequence):
+    logging.debug('Beginning translation...')
+    amino_acids = dict_to_list(codon_dict)
+    amino_acids_list = []
+    # Find start codon
+    logging.debug('Searching for start codon...')
+    for nucleotide in range(0, len(sequence), 3):
+        codon = sequence[nucleotide] + sequence[nucleotide + 1] + sequence[nucleotide + 2]
+        if codon == start_codon:
+            start_index = sequence.index(codon)
+            break
+    start_peptide_chain = sequence[start_index:]
+    logging.debug(f'Peptide chain from start codon.\n{start_peptide_chain}')
 
-    def find_stop_codon(temp_peptide_chain, difference):
-        logging.debug(f'Peptide chain entering:\n{peptide_chain}')
-        for stop in stop_codon:
-            if (temp_peptide_chain.index(stop) - start) % 3 == 0:
-                logging.debug(f'Peptdie chain found with stop codon at {peptide_chain.index(stop)}. \
-                New sequence is\n{peptide_chain}')
-                stop_sequence_index = temp_peptide_chain.index(stop) + difference
-                final = final_stop_sequence[:stop_sequence_index + 3]
-                return final
-            else:
-                logging.debug(f'{stop} at {peptide_chain.index(stop)} is not a stop codon')
-                temp_peptide_chain = temp_peptide_chain[temp_peptide_chain.index(stop) + 1:]
-                difference = initial_length - len(temp_peptide_chain)
-                logging.debug(f'NEW STOP SEQUENCE:\n{peptide_chain}\nLength: {len(peptide_chain)}')
-                logging.debug(f'Difference is: {difference}')
-                return find_stop_codon(temp_peptide_chain, difference)
-
-    final_stop_sequence = peptide_chain
-    peptide_chain = find_stop_codon(final_stop_sequence, 0)
-    logging.debug(f'Printing sequence out of loop.\n{peptide_chain}')
-    temp_sequence = ''
-    print(f'Chain out of loop:\n{peptide_chain}')
-    for i in range(0, len(peptide_chain), 3):
-        codon = peptide_chain[i] + peptide_chain[i + 1] + peptide_chain[i + 2]
-        temp_sequence += codon
+    # Find stop codon
+    logging.debug('Searching for stop codon...')
+    peptide_chain = []
+    for nucleotide in range(0, len(start_peptide_chain), 3):
+        codon = start_peptide_chain[nucleotide] \
+                + start_peptide_chain[nucleotide + 1] \
+                + start_peptide_chain[nucleotide + 2]
+        peptide_chain.append(codon)
         if codon in stop_codon:
             break
-    peptide_chain = temp_sequence
-    logging.debug(f'peptide_chain after the find_stop_codon function.\n{peptide_chain}')
-    print(f'Chain after finding first stop codon:\n{peptide_chain}')
-    for i in range(0, len(peptide_chain), 3):
-        codon = peptide_chain[i] + peptide_chain[i + 1] + peptide_chain[i + 2]
-        for group in codons_list:
-            if codon in group[1]:
-                codon_list.append(group[0])
-    return codon_list
+    logging.debug(f'Peptide chain after finding stop codon.\n{peptide_chain}')
+
+    # Determine amino acid
+    logging.debug('Creating amino acid list')
+    for codon in peptide_chain:
+        for amino_acid in amino_acids:
+            if codon in amino_acid[1]:
+                amino_acids_list.append(amino_acid[0])
+    logging.debug(f'List of amino acids:\n{amino_acids_list}')
+
+    # Return a string of amino acids
+    logging.debug('Converting amino acid list to a string')
+    aa_string = '-'.join(amino_acids_list)
+    logging.debug(f'String of amino acids.\n{aa_string}')
+    return aa_string
 
 
-sequence = create_random_sequence(1000)
-print(f'Intial sequence:\n{sequence}')
-DNA_template = create_dna_template_strand(sequence)
-print(f'DNA template:\n{DNA_template}')
-mRNA = transcribe(DNA_template)
+sequence = create_random_sequence(2000)
+print(f'Random sequence:\n{sequence}')
+dna_template = create_dna_template_strand(sequence)
+print(f'DNA template:\n{dna_template}')
+mRNA = transcribe(dna_template)
 print(f'mRNA:\n{mRNA}')
-peptide_chain = translate(mRNA, 0)
-protein = ''
-for amino_acid in peptide_chain:
-    protein += amino_acid + '-'
-print(protein.replace('STOP-', 'STOP'))
+print(translate(mRNA))
+logging.debug('End of program.\n' + ('-' * 200))
