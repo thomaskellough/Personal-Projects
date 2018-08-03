@@ -7,6 +7,7 @@ import re
 
 logging.basicConfig(filename='gene_expression.log', level=logging.DEBUG,
                     format='%(funcName)s - %(levelname)s: %(message)s')
+logging.disable(logging.CRITICAL)
 
 nucleotide_list = ['A', 'T', 'G', 'C']
 start_codon = 'AUG'
