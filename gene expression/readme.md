@@ -13,7 +13,7 @@ This program is only compatable with Windows. It has only been tested with Windo
 
 ## Authors
 
-* **Thomas Kellough** - *Initial work* - [Github](https://github.com/thomaskellough)
+* **Thomas Kellough** - [Github](https://github.com/thomaskellough)
 
 ## License
 
