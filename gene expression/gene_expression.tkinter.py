@@ -1,8 +1,11 @@
 from random import choice
-from tkinter import *
+import tkinter as tk
+from tkinter import ttk
 import tkinter.messagebox
 import logging
+import platform
 import re
+import os
 
 
 logging.basicConfig(filename='gene_expression.log', level=logging.DEBUG,
@@ -119,6 +122,16 @@ def translate(sequence):
     except IndexError:
         return 'No protein found'
 
+#this may cause problems if the image isn't included in the freezing when
+#the app is made executable
+#or if the assets folder isn't in the cwd when the exe is opened
+def seticon(app):
+    #TODO: add support for MacOS
+    if platform.system()=="Windows":
+        app.iconbitmap(os.path.join("Assets", "icon.ico"))
+    elif platform.system()=="Linux":
+        imgicon = tk.PhotoImage(file=os.path.join("Assets", "icon.gif"))
+        app.tk.call("wm", "iconphoto", app._w, imgicon)
 
 # Creating GUI
 class MyFrame:
@@ -254,84 +267,101 @@ class MyFrame:
             tkinter.messagebox.showinfo(message='Incorrect. Please refer back to a codon chart.')
 
     def __init__(self, parent):
-        main_frame = Frame(parent, bg='gainsboro')
+        main_frame = tk.Frame(parent, bg='gainsboro')
         root.title('Transcription and Translation')
-        main_frame.pack(fill=BOTH, expand=YES)
-        root.option_add('*tearOff', FALSE)
+        main_frame.pack(fill=tk.BOTH, expand=True)
+        root.option_add('*tearOff', tk.FALSE)
         root.resizable(False, False)
 
-        self.rand_entry_var = StringVar()
-        self.mRNA_var = StringVar()
-        self.tRNA_var = StringVar()
-        self.translate_var = StringVar()
-        self.rand_length_var = StringVar()
-        self.spin_box_var = StringVar()
+        self.rand_entry_var = tk.StringVar()
+        self.mRNA_var = tk.StringVar()
+        self.tRNA_var = tk.StringVar()
+        self.translate_var = tk.StringVar()
+        self.rand_length_var = tk.StringVar()
+        self.spin_box_var = tk.StringVar()
 
-        self.welcome_text = Label(main_frame,
+        self.welcome_text = tk.Label(main_frame,
                                   text="Welcome to a small program to practice transcription and translation.\n"
                                        "Please see the 'Help' menu for instructions.",
                                   bg='royalblue4', fg='white', font='Times 16 bold')
-        self.welcome_text.grid(columnspan=3, row=0, sticky=EW)
+        self.welcome_text.grid(columnspan=3, row=0, sticky=tk.EW)
 
-        self.rand_text = Label(main_frame,
+        self.rand_text = tk.Label(main_frame,
                                text='Please enter a DNA sequence or calculate a random one. Use the box to your left '
                                     'to input up to a range of 2000',
                                bg='gainsboro')
-        self.rand_text.grid(column=1, row=1, rowspan=1, sticky=W)
+        self.rand_text.grid(column=1, row=1, rowspan=1, sticky=tk.W)
         self.spin_box_var.set(250)
-        self.rand_seq_length = Spinbox(main_frame, width=4, from_=1, to=2000, textvariable=self.spin_box_var)
-        self.rand_seq_length.grid(column=0, row=1, sticky=E, pady=5)
+        self.rand_seq_length = tk.Spinbox(main_frame, width=4, from_=1, to=2000, textvariable=self.spin_box_var)
+        self.rand_seq_length.grid(column=0, row=1, sticky=tk.E, pady=5)
+
+        # setup styles for entry boxes
+        ttk.Style().configure("random.TEntry", foreground="darkblue")
+        ttk.Style().configure("mRNA.TEntry", foreground="red")
+        ttk.Style().configure("tRNA.TEntry", foreground="purple")
+        ttk.Style().configure("translate.TEntry", foreground="darkgreen")
 
         # Entry boxes for user input or input from functions
-        self.random_entry = Entry(main_frame, width=100, textvariable=self.rand_entry_var, fg='darkblue')
-        self.mRNA_entry = Entry(main_frame, width=100, textvariable=self.mRNA_var, fg='red')
-        self.mRNA_to_tRNA_entry = Entry(main_frame, width=100, textvariable=self.tRNA_var, fg='purple')
-        self.translate_entry = Entry(main_frame, width=100, textvariable=self.translate_var, fg='darkgreen')
+        self.random_entry = ttk.Entry(main_frame, width=100, textvariable=self.rand_entry_var, style="random.TEntry")
+        self.mRNA_entry = ttk.Entry(main_frame, width=100, textvariable=self.mRNA_var, style="mRNA.TEntry")
+        self.mRNA_to_tRNA_entry = ttk.Entry(main_frame, width=100, textvariable=self.tRNA_var, style="tRNA.TEntry")
+        self.translate_entry = ttk.Entry(main_frame, width=100, textvariable=self.translate_var, style="translate.TEntry")
 
-        self.random_entry.grid(column=1, row=3, sticky=EW, padx=5)
-        self.mRNA_entry.grid(column=1, row=5, sticky=EW, padx=5)
-        self.mRNA_to_tRNA_entry.grid(column=1, row=7, sticky=EW, padx=5)
-        self.translate_entry.grid(column=1, row=9, sticky=EW, padx=5)
+        self.random_entry.grid(column=1, row=3, sticky=tk.EW, padx=5)
+        self.mRNA_entry.grid(column=1, row=5, sticky=tk.EW, padx=5)
+        self.mRNA_to_tRNA_entry.grid(column=1, row=7, sticky=tk.EW, padx=5)
+        self.translate_entry.grid(column=1, row=9, sticky=tk.EW, padx=5)
+
+        #setup styles for left buttons
+        ttk.Style().configure("random.TButton", foreground="darkblue")
+        ttk.Style().configure("mRNA.TButton", foreground="red")
+        ttk.Style().configure("tRNA.TButton", foreground="purple")
+        ttk.Style().configure("translate.TButton", foreground="darkgreen")
 
         # Left side buttons that perform functions
-        self.random_button = Button(main_frame, text='Random Sequence', fg='darkblue')
-        self.mRNA_button = Button(main_frame, text='mRNA', fg='red')
-        self.mRNA_to_tRNA = Button(main_frame, text='tRNA', fg='purple')
-        self.translate_button = Button(main_frame, text='Polypeptide Chain', fg='darkgreen')
+        self.random_button = ttk.Button(main_frame, text='Random Sequence', style="random.TButton")
+        self.mRNA_button = ttk.Button(main_frame, text='mRNA', style="mRNA.TButton")
+        self.mRNA_to_tRNA = ttk.Button(main_frame, text='tRNA', style="tRNA.TButton")
+        self.translate_button = ttk.Button(main_frame, text='Polypeptide Chain', style="translate.TButton")
 
-        self.random_button.grid(column=0, row=3, sticky=EW)
-        self.mRNA_button.grid(column=0, row=5, sticky=EW)
-        self.mRNA_to_tRNA.grid(column=0, row=7, sticky=EW)
-        self.translate_button.grid(column=0, row=9, sticky=EW)
+        self.random_button.grid(column=0, row=3, sticky=tk.EW)
+        self.mRNA_button.grid(column=0, row=5, sticky=tk.EW)
+        self.mRNA_to_tRNA.grid(column=0, row=7, sticky=tk.EW)
+        self.translate_button.grid(column=0, row=9, sticky=tk.EW)
 
         self.random_button.bind('<ButtonRelease-1>', self.create_rand_seq)
         self.mRNA_button.bind('<ButtonRelease-1>', self.create_mRNA_tk)
         self.mRNA_to_tRNA.bind('<ButtonRelease-1>', self.mRNA_to_tRNA_tk)
         self.translate_button.bind('<ButtonRelease-1>', self.translate_tk)
 
-        # Right side buttons to check user input for accuracy
-        self.check_mRNA = Button(main_frame, text='Check', fg='red', padx=10, font='Times 9 bold')
-        self.check_tRNA = Button(main_frame, text='Check', fg='purple', padx=10, font='Times 9 bold')
-        self.check_translation = Button(main_frame, text='Check', fg='darkgreen', padx=10, font='Times 9 bold')
+        #setup styles for right buttons
+        ttk.Style().configure("mRNAbold.TButton", foreground="red", font="-weight bold")
+        ttk.Style().configure("tRNAbold.TButton", foreground="purple", font="-weight bold")
+        ttk.Style().configure("translatebold.TButton", foreground="darkgreen", font="-weight bold")
 
-        self.check_mRNA.grid(column=2, row=5, sticky=EW)
-        self.check_tRNA.grid(column=2, row=7, sticky=EW)
-        self.check_translation.grid(column=2, row=9, sticky=EW)
+        # Right side buttons to check user input for accuracy
+        self.check_mRNA = ttk.Button(main_frame, text='Check', style = "mRNAbold.TButton")
+        self.check_tRNA = ttk.Button(main_frame, text='Check', style="tRNAbold.TButton")
+        self.check_translation = ttk.Button(main_frame, text='Check', style="translatebold.TButton")
+
+        self.check_mRNA.grid(column=2, row=5, sticky=tk.EW)
+        self.check_tRNA.grid(column=2, row=7, sticky=tk.EW)
+        self.check_translation.grid(column=2, row=9, sticky=tk.EW)
 
         self.check_mRNA.bind('<ButtonRelease-1>', self.check_mRNA_tk)
         self.check_tRNA.bind('<ButtonRelease-1>', self.check_tRNA_tk)
         self.check_translation.bind('<ButtonRelease-1>', self.check_translate_tk)
 
         # Scrollbars
-        self.rand_scrollbar = Scrollbar(main_frame, orient=HORIZONTAL, command=self.random_entry.xview)
-        self.mRNA_scrollbar = Scrollbar(main_frame, orient=HORIZONTAL, command=self.mRNA_entry.xview)
-        self.mRNA_to_tRNA_scrollbar = Scrollbar(main_frame, orient=HORIZONTAL, command=self.mRNA_to_tRNA_entry.xview)
-        self.translate_scrollbar = Scrollbar(main_frame, orient=HORIZONTAL, command=self.translate_entry.xview)
+        self.rand_scrollbar = ttk.Scrollbar(main_frame, orient=tk.HORIZONTAL, command=self.random_entry.xview)
+        self.mRNA_scrollbar = ttk.Scrollbar(main_frame, orient=tk.HORIZONTAL, command=self.mRNA_entry.xview)
+        self.mRNA_to_tRNA_scrollbar = ttk.Scrollbar(main_frame, orient=tk.HORIZONTAL, command=self.mRNA_to_tRNA_entry.xview)
+        self.translate_scrollbar = ttk.Scrollbar(main_frame, orient=tk.HORIZONTAL, command=self.translate_entry.xview)
 
-        self.rand_scrollbar.grid(column=1, row=4, sticky=EW, padx=5)
-        self.mRNA_scrollbar.grid(column=1, row=6, sticky=EW, padx=5)
-        self.mRNA_to_tRNA_scrollbar.grid(column=1, row=8, sticky=EW, padx=5)
-        self.translate_scrollbar.grid(column=1, row=10, sticky=EW, padx=5, pady=(0, 50))
+        self.rand_scrollbar.grid(column=1, row=4, sticky=tk.EW, padx=5)
+        self.mRNA_scrollbar.grid(column=1, row=6, sticky=tk.EW, padx=5)
+        self.mRNA_to_tRNA_scrollbar.grid(column=1, row=8, sticky=tk.EW, padx=5)
+        self.translate_scrollbar.grid(column=1, row=10, sticky=tk.EW, padx=5, pady=(0, 50))
 
         self.random_entry.config(xscrollcommand=self.rand_scrollbar.set)
         self.mRNA_entry.config(xscrollcommand=self.mRNA_scrollbar.set)
@@ -342,11 +372,11 @@ class MyFrame:
         self.make_menu(root)
         self.random_entry.bind_class("Entry", "<ButtonRelease-3>", self.show_menu)
 
-        # Main menu and sub-menu's
-        main_menu = Menu(root)
+        # Main menu and sub-menus
+        main_menu = tk.Menu(root)
         root.config(menu=main_menu)
-        sub_menu_file = Menu(main_menu)
-        sub_menu_help = Menu(main_menu)
+        sub_menu_file = tk.Menu(main_menu)
+        sub_menu_help = tk.Menu(main_menu)
 
         main_menu.add_cascade(label='File', menu=sub_menu_file)
         sub_menu_file.add_command(label='Clear Inputs', command=self.clear_screen)
@@ -358,8 +388,9 @@ class MyFrame:
         sub_menu_help.add_separator()
         sub_menu_help.add_command(label='License', command=self.display_license)
 
+if __name__ == "__main__":
+    root = tk.Tk()
+    seticon(root)
+    frame = MyFrame(root)
 
-root = Tk()
-frame = MyFrame(root)
-
-root.mainloop()
+    root.mainloop()
