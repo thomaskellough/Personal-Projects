@@ -16,6 +16,7 @@ This program is compatible with Windows and Mac. It has only been tested with Wi
 ## Authors
 
 * **Thomas Kellough** - [Github](https://github.com/thomaskellough)
+See also the list of [contributors](https://github.com/thomaskellough/Personal-Projects/graphs/contributors) who participated in this project.
 
 ## License
 
