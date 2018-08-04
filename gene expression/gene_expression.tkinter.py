@@ -1,11 +1,23 @@
 from random import choice
-import tkinter as tk
+import tkinter as tk    #import as a name so it's easier to see where classes come from
 from tkinter import ttk
 import tkinter.messagebox
 import logging
 import platform
+import sys
 import re
 import os
+
+#https://stackoverflow.com/questions/7674790/bundling-data-files-with-pyinstaller-onefile
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 
 logging.basicConfig(filename='gene_expression.log', level=logging.DEBUG,
@@ -128,9 +140,9 @@ def translate(sequence):
 def seticon(app):
     #TODO: add support for MacOS
     if platform.system()=="Windows":
-        app.iconbitmap(os.path.join("Assets", "icon.ico"))
+        app.iconbitmap(resource_path(os.path.join("Assets", "icon.ico")))
     elif platform.system()=="Linux":
-        imgicon = tk.PhotoImage(file=os.path.join("Assets", "icon.gif"))
+        imgicon = tk.PhotoImage(file=resource_path(os.path.join("Assets", "icon.gif")))
         app.tk.call("wm", "iconphoto", app._w, imgicon)
 
 # Creating GUI
