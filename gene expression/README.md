@@ -4,11 +4,13 @@ This program is designed to let users practice transcription and translation usi
 
 ## Getting Started
 
-The .py is linked inside this directoy that you can simply copy and paste. I've also included a pyc file you can download and run. 
+There are two .py files you can simply copy and paste and run directly. The difference is the styling of the GUI with the _ttk.py_ containing a slightly different look. If you choose to use the _ttk.py_ file you will also need to have the Assets folder downloaded and placed in the directory that you are running the program from.  
+
+There is also a pyc file and exe file that can be downloaded. If you plan to use the pyc file you must have python installed. There ae no additonal packages that need to be installed that do not already come with python 3.6.
 
 ### Prerequisites
 
-This program is only compatable with Windows. It has only been tested with Windows 10 and is not guaranteed to work with any previous versions. 
+This program is compatible with Windows and Mac. It has only been tested with Windows 10 and is not guaranteed to work with any previous versions. 
 
 
 ## Authors
