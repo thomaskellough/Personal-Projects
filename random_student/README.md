@@ -1,0 +1,1 @@
+This repository and python script is highly unfinished. Uploaded for the purpose of sharing my code as a work in progress. I will update as soon as I finish (hopefully within the next couple of days).
