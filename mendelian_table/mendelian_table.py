@@ -4,18 +4,11 @@ from tkinter import messagebox
 import logging
 import platform
 import os
+import sys
+
 logging.disable(logging.CRITICAL)
 logging.basicConfig(level=logging.DEBUG,
                     format='%(funcName)s - %(levelname)s: %(message)s')
-
-
-def set_icon(app):
-    # TODO: add support for MacOS
-    if platform.system() == 'Windows':
-        app.iconbitmap(os.path.join('assets', 'icon.ico'))
-    elif platform.system() == 'Linux':
-        imgicon = tk.PhotoImage(file=os.path.join('assets', 'icon.gif'))
-        app.tk.call('wm', 'iconphoto', app._w, imgicon)
 
 
 def display_license():
@@ -40,6 +33,23 @@ def display_license():
                 'LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n'
                 'OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n'
                 'SOFTWARE.')
+
+def set_icon(app):
+    if platform.system() == "Windows":
+        app.iconbitmap(resource_path(os.path.join("Assets", "icon.ico")))
+    elif platform.system() == "Linux":
+        imgicon = tk.PhotoImage(file=resource_path(os.path.join("Assets", "icon.gif")))
+        app.tk.call("wm", "iconphoto", app._w, imgicon)
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 
 # Dictionary that holds phenotypes and genotypes off offspring
