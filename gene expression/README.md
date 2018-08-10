@@ -17,15 +17,19 @@ Instructions for Windows:
 - Open the command prompt 
 - Change to working directory that your script is contained in
 - Ensure the Assets folder with the icon is included in the directory with your .py script
+
 From the command line:
 '''
 pyi-makespec --onefile --windowed --icon=Assets\\icon.ico gene_expression.py
 '''
+
 Edit the .spec file to look like gene_expression.spec
 Then run:
+
 '''
 pyinstaller gene_expression.spec
 '''
+
 You should have 2-3 new folders created. 'build', 'dist', and possibly '_pycache_'
 Inside the 'dist' folder will be your executable file.
 
