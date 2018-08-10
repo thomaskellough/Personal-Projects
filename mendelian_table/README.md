@@ -4,12 +4,35 @@ A dihybrid cross table is a table of potential phenotyes from two parents with t
 
 ## Getting Started
 
-An executable file is available for windows download. I will update an app for Mac soon. You can also run the source code direclty. Note that for both cases you will need to have the icon inside the working directory you are using. The icons are located in the assets folder. I recommend keeping it all in the sasme folder then sending a shortcut to the desktop for ease of access. You can also take the source code out and comment/delete out the set_icon function to run the code without downloading the images.  
+An executable file is available for windows download. I will update an app for Mac soon. You can also run the source code directly without downloading the icon by commenting out the set_icon and resource_path functions on lines 39-54. You will also need to comment out calling the function on line 246. The program should be compatible with linux, but it has not been tested.
+  
 
 ### Prerequisites
 
-Windows, OX, or linux. Note: I have not tested the icon with linux yet. It has also only been tested on Windows 10. If you choose to run the source code directly you will need to have Python 3.x installed. It has not been tested on Python 2.
+This program is compatible with Windows and Mac. It has only been tested with Windows 10 and is not guaranteed to work with any previous versions. Since this program uses f-strings you must have Python 3.6 installed in order to run the code. Alternately, you can edit the file to remove f-strings and format with a way that is compatible with your version. 
 
+### Packaging
+This program was packaged using PyInstaller Version 3.3.1. 
+
+Instructions for Windows:
+- Open the command prompt 
+- Change to working directory that your script is contained in
+- Ensure the Assets folder with the icon is included in the directory with your .py script
+
+From the command line:
+```
+pyi-makespec --onefile --windowed --icon=Assets\\icon.ico mendelian_table.py
+```
+
+Edit the .spec file to look like [mendelian_table.spec](mendelian_table.spec)
+Then run:
+
+```
+pyinstaller mendelian_table.spec
+```
+
+You should have 2-3 new folders created. 'build', 'dist', and possibly '_pycache_'
+Inside the 'dist' folder will be your executable file.
 
 ## Authors
 
