@@ -12,7 +12,8 @@ You may have additional files in the directory without causing any problems, but
 
 When running the program you should see something similar to this:
 
-![pic1](https://user-images.githubusercontent.com/41200583/43981342-11d3d7b4-9cb7-11e8-88ab-2bfb5b3c01f0.JPG)
+![pic2](https://user-images.githubusercontent.com/41200583/43981491-ad6a7c78-9cb7-11e8-84d2-2abfc2aa84ce.JPG)
+
 
 ### Prerequisites
 
