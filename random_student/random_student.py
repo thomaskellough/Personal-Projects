@@ -7,21 +7,32 @@ import platform
 import random
 import logging
 import os
+import sys
 
+# Disable only critical logs since they are for the programmer.
+# Logs with the level debug are for creating the log file on how the
+# students were grouped up.
 logging.disable(logging.DEBUG)
 logging.basicConfig(filename='Random Generator.log', level=logging.DEBUG,
                     format='%(funcName)s - %(asctime)s: %(message)s')
 
 
 def set_icon(app):
-    path = os.getcwd()
-    os.chdir('..')
-    if platform.system() == 'Windows':
-        app.iconbitmap(os.path.join('assets', 'icon.ico'))
-    elif platform.system() == 'Linux':
-        imgicon = tk.PhotoImage(file=os.path.join('assets', 'icon.gif'))
-        app.tk.call('wm', 'iconphoto', app._w, imgicon)
-    os.chdir(path)
+    if platform.system() == "Windows":
+        app.iconbitmap(resource_path(os.path.join("Assets", "icon.ico")))
+    elif platform.system() == "Linux":
+        imgicon = tk.PhotoImage(file=resource_path(os.path.join("Assets", "icon.gif")))
+        app.tk.call("wm", "iconphoto", app._w, imgicon)
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 
 def display_license():
@@ -168,6 +179,7 @@ class NameFrame:
     def __init__(self, parent):
         root.geometry('960x680')
         root.configure(background='#c2c2d6')
+        root.title('Random Name Generator')
 
         title_frame = tk.Frame(parent, pady=20, background='#006600')
         select_frame = tk.Frame(parent, pady=20, background='#c2c2d6')
@@ -270,6 +282,8 @@ class NameFrame:
 
 if __name__ == '__main__':
     root = tk.Tk()
+    os.chdir('..')
     set_icon(root)
+    os.chdir(os.path.join(os.path.abspath('.'), 'pictures'))
     frame = NameFrame(root)
     root.mainloop()
