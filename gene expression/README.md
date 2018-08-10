@@ -4,9 +4,7 @@ This program is designed to let users practice transcription and translation usi
 
 ## Getting Started
 
-There are two .py files you can simply copy and paste and run directly. The difference is the styling of the GUI with the _ttk.py_ containing a slightly different look. If you choose to use the _ttk.py_ file you will also need to have the Assets folder downloaded and placed in the directory that you are running the program from.  
-
-There is also a pyc file and exe file that can be downloaded. If you plan to use the pyc file you must have python installed. There ae no additonal packages that need to be installed that do not already come with python 3.6.
+An executable file is available for windows download. I will update an app for Mac soon. You can also run the source code direclty. Note that for both cases you will need to have the icon inside the working directory you are using. I recommend keeping it all in the sasme folder then sending a shortcut to the desktop for ease of access. You can also take the source code out and comment/delete out the set_icon function to run the code without downloading the images.
 
 ### Prerequisites
 
