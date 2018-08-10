@@ -129,10 +129,20 @@ def display_license():
 
 def set_icon(app):
     if platform.system() == "Windows":
-        app.iconbitmap(os.path.join("Assets", "icon.ico"))
+        app.iconbitmap(resource_path(os.path.join("Assets", "icon.ico")))
     elif platform.system() == "Linux":
-        img_icon = tk.PhotoImage(file=os.path.join("Assets", "icon.gif"))
-        app.tk.call("wm", "iconphoto", app._w, img_icon)
+        imgicon = tk.PhotoImage(file=resource_path(os.path.join("Assets", "icon.gif")))
+        app.tk.call("wm", "iconphoto", app._w, imgicon)
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 
 # Creating GUI
