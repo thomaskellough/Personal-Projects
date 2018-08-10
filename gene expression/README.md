@@ -23,7 +23,7 @@ From the command line:
 pyi-makespec --onefile --windowed --icon=Assets\\icon.ico gene_expression.py
 ```
 
-Edit the .spec file to look like [gene_expression.spec](gene_expression.py)
+Edit the .spec file to look like [gene_expression.spec](gene_expression.spec)
 Then run:
 
 ```
