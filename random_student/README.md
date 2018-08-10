@@ -14,6 +14,7 @@ When running the program you should see something similar to this:
 
 ![pic2](https://user-images.githubusercontent.com/41200583/43981491-ad6a7c78-9cb7-11e8-84d2-2abfc2aa84ce.JPG)
 
+This program also logs the students picked from 'pair' or 'group' and writes it to a new .log file. When you first run the program the file will automatically be created inside the working directory that your exe is located in. An example log file that is generated can be seen by going to [example.log](example.log). This log file is so you can remember the groups and pairs that were chosen for your students without having to write anything down. It logs the date, time, period, and students' names. The .log file is a text document can can be opened with any texte editor, such as Notepad.  
 
 ### Prerequisites
 
