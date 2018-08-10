@@ -34,6 +34,7 @@ def display_license():
                 'OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n'
                 'SOFTWARE.')
 
+    
 def set_icon(app):
     if platform.system() == "Windows":
         app.iconbitmap(resource_path(os.path.join("Assets", "icon.ico")))
