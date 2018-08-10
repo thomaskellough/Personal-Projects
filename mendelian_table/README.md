@@ -4,7 +4,7 @@ A dihybrid cross table is a table of potential phenotyes from two parents with t
 
 ## Getting Started
 
-An executable file is available for windows download. I will update an app for Mac soon. You can also run the source code direclty. Note that for both cases you will need to have the icon inside the working directory you are using. I recommend keeping it all in the sasme folder then sending a shortcut to the desktop for ease of access. You can also take the source code out and comment/delete out the set_icon function to run the code without downloading the images.  
+An executable file is available for windows download. I will update an app for Mac soon. You can also run the source code direclty. Note that for both cases you will need to have the icon inside the working directory you are using. The icons are located in the assets folder. I recommend keeping it all in the sasme folder then sending a shortcut to the desktop for ease of access. You can also take the source code out and comment/delete out the set_icon function to run the code without downloading the images.  
 
 ### Prerequisites
 
