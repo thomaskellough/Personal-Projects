@@ -4,7 +4,7 @@ A dihybrid cross table is a table of potential phenotyes from two parents with t
 
 ## Getting Started
 
-An executable file is available for windows download. I will update an app for Mac soon. You can also run the source code directly without downloading the icon by commenting out the set_icon and resource_path functions on lines 39-54. You will also need to comment out calling the function on line 246. The program should be compatible with linux, but it has not been tested.
+An executable file is available for windows download. I will update an app for Mac soon. You can also run the source code directly without downloading the icon by commenting out the set_icon and resource_path functions on lines 37-52. You will also need to comment out calling the function on line 244. The program should be compatible with linux, but it has not been tested.
   
 
 ### Prerequisites
