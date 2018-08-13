@@ -6,6 +6,10 @@ This program is designed to let users practice transcription and translation usi
 
 An executable file is available for windows download. I will update an app for Mac soon. You can also run the source code directly without downloading the icon by commenting out the set_icon and resource_path functions on lines 130-145. You will also need to comment out calling the function on line 383. The program should be compatible with linux, but it has not been tested.
 
+An example of what the program looks like when running.
+![gene_expression_example](https://user-images.githubusercontent.com/41200583/44048204-4ce53fd2-9ef6-11e8-93a4-a90ba96311f0.JPG)
+
+
 ### Prerequisites
 
 This program is compatible with Windows and Mac. It has only been tested with Windows 10 and is not guaranteed to work with any previous versions. Since this program uses f-strings you must have Python 3.6 installed in order to run the code. Alternately, you can edit the file to remove f-strings and format with a way that is compatible with your version. 
