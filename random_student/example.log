@@ -1,18 +1,11 @@
-random_pair - 2018-08-09 19:29:52,481: Selecting from Period 1
-random_pair - 2018-08-09 19:29:52,481: Pair of students for: Godric with Sir Nicholas
-random_pair - 2018-08-09 19:29:52,762: Selecting from Period 1
-random_pair - 2018-08-09 19:29:52,762: Pair of students for: Ron with Minerva
-random_pair - 2018-08-09 19:29:52,856: Selecting from Period 1
-random_pair - 2018-08-09 19:29:52,856: Pair of students for: Harry with Albus
-random_pair - 2018-08-09 19:29:53,028: Selecting from Period 1
-random_pair - 2018-08-09 19:29:53,028: Pair of students for: Dean with Seamus
-random_group - 2018-08-09 19:29:58,357: Selecting from Period 3
-random_group - 2018-08-09 19:29:58,357: Group: Pansy, Severus, Salazar, Draco
-random_group - 2018-08-09 19:29:58,536: Selecting from Period 3
-random_group - 2018-08-09 19:29:58,536: Group: Horace, Tom Riddle, Phineas, Bellatrix
-random_pair - 2018-08-09 19:29:59,555: Selecting from Period 3
-random_pair - 2018-08-09 19:29:59,555: Pair of students for: Crabbe with Goyle
-random_group - 2018-08-09 19:30:01,996: Selecting from Period 6
-random_group - 2018-08-09 19:30:01,996: Group: Hannah, Susan, Cedric, Nymphadora
-random_pair - 2018-08-09 19:30:03,064: Selecting from Period 6
-random_pair - 2018-08-09 19:30:03,064: Pair of students for: Helga with Newton
+random_pair - 2018-08-14 10:19: Period 1 - Paired Sir Nicholas with Godric
+random_pair - 2018-08-14 10:19: Period 1 - Paired Dean with Seamus
+random_group - 2018-08-14 10:19: Period 1 - Group: Albus, Minerva, Hermione, Ron
+random_pair - 2018-08-14 10:19: Period 3 - Paired Draco with Crabbe
+random_pair - 2018-08-14 10:19: Period 3 - Paired Salazar with Tom Riddle
+random_group - 2018-08-14 10:19: Period 3 - Group: Goyle, Horace, Severus, Bellatrix
+random_group - 2018-08-14 10:19: Period 6 - Group: Nymphadora, Helga, Cedric, Susan
+random_pair - 2018-08-14 10:19: Period 6 - Paired Hannah with Newton
+random_group - 2018-08-14 10:19: Period 7 - Group: Cho, Penelope, Filius, Xenophilius
+random_pair - 2018-08-14 10:20: Period 7 - Paired Sybill with Gilderoy
+random_pair - 2018-08-14 10:20: Period 7 - Paired Moaning Myrtle with Luna
