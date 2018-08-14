@@ -4,7 +4,17 @@ This program is designed to randomly select either a student, pair of students, 
 
 ## Getting Started
 
-An executable file is available for windows download. In order to run this program you need the exectuable file, at least one txt file with names in the format "period_(number).txt" from periods 1 - 8, and a folder of images you want to display. The executable file needs to be in the same folder as the txt files, while the pictures need to be in their own folder named 'pictures' which is in the same directory as the exectuable file. Below is an example of how your directory may look. 
+An executable file is available for windows download. In order to run this program you need the exectuable file, at least one txt file with names in the format "period_(number).txt" from periods 1 - 8, and a folder of images you want to display. The images should be named one of three options:
+* single_(anyname)
+* pair_(anyname)
+* group_(anyname)
+
+The random picture that is selected while running the program is dependent on how the image is named. For example, if you clicke the 'Single' button, a picture that starts with 'single_' will be chosen at random. 
+An example of how your pictures may look:
+
+![capture](https://user-images.githubusercontent.com/41200583/44098946-1dacda34-9fa7-11e8-87bd-961428b52e80.JPG)
+
+The executable file needs to be in the same folder as the txt files, while the pictures need to be in their own folder named 'pictures' which is in the same directory as the exectuable file. Below is an example of how your directory may look. 
 
  ![pic1](https://user-images.githubusercontent.com/41200583/43981208-7c078f14-9cb6-11e8-9250-d3cf8b2455ee.JPG)
  
@@ -14,7 +24,9 @@ When running the program you should see something similar to this:
 
 ![pic2](https://user-images.githubusercontent.com/41200583/43981491-ad6a7c78-9cb7-11e8-84d2-2abfc2aa84ce.JPG)
 
-This program also logs the students picked from 'pair' or 'group' and writes it to a new .log file. When you first run the program the file will automatically be created inside the working directory that your exe is located in. An example log file that is generated can be seen by going to [example.log](example.log). This log file is so you can remember the groups and pairs that were chosen for your students without having to write anything down. It logs the date, time, period, and students' names. The .log file is a text document can can be opened with any texte editor, such as Notepad.  
+This program also logs the students picked from 'pair' or 'group' and writes it to a new .log file. When you first run the program the file will automatically be created inside the working directory that your exe is located in. An example log file that is generated can be seen by going to [example.log](example.log). This log file is so you can remember the groups and pairs that were chosen for your students without having to write anything down. It logs the date, time, period, and students' names. The .log file is a text document can can be opened with any text editor, such as Notepad.  
+
+Once a name is printed on the screen it will not be chosen again unless you restart the program or click the 'reset' button. However, if you want a picture to print again you must restart the program.  
 
 ### Prerequisites
 
