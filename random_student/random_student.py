@@ -14,7 +14,8 @@ import sys
 # students were grouped up.
 logging.disable(logging.DEBUG)
 logging.basicConfig(filename='Random Generator.log', level=logging.DEBUG,
-                    format='%(funcName)s - %(asctime)s: %(message)s')
+                    format='%(funcName)s - %(asctime)s: %(message)s',
+							datefmt='%Y-%m-%d %H:%M')
 
 
 def set_icon(app):
@@ -117,10 +118,8 @@ class NameFrame:
         elif class_list == 'Period 6':
             return [x for x in class_dict['Period_6'] if x not in self.student_remove_list]
         elif class_list == 'Period 7':
-            logging.info(f'Choosing from {class_list}')
             return [x for x in class_dict['Period_7'] if x not in self.student_remove_list]
         elif class_list == 'Period 8':
-            logging.info(f'Choosing from {class_list}')
             return [x for x in class_dict['Period_8'] if x not in self.student_remove_list]
 
     def random_student(self):
@@ -145,8 +144,7 @@ class NameFrame:
             student1 = random.choice(class_list)
             class_list.remove(student1)
             student2 = random.choice(class_list)
-            logging.info(f'Selecting from {self.class_select_var.get()}')
-            logging.info(f'Pair of students for: {student1} with {student2}')
+            logging.info(f'{self.class_select_var.get()} - Paired {student1} with {student2}')
             self.display_name_var.set('\n'.join([student1, student2]))
             self.student_remove_list.extend((student1, student2))
             self.display_image(pair_list)
@@ -167,8 +165,7 @@ class NameFrame:
             class_list.remove(student3)
             student4 = random.choice(class_list)
             class_list.remove(student4)
-            logging.info(f'Selecting from {self.class_select_var.get()}')
-            logging.info(f'Group: {student1}, {student2}, {student3}, {student4}')
+            logging.info(f'{self.class_select_var.get()} - Group: {student1}, {student2}, {student3}, {student4}')
             self.display_name_var.set('\n'.join([student1, student2, student3, student4]))
             self.student_remove_list.extend((student1, student2, student3, student4))
             self.display_image(group_list)
