@@ -40,4 +40,4 @@ shinyApp(ui, server)
 ```
 
 
-This may be all you need to start stylizing your shiny new Shiny program. However, if you want some more examples of different things you can do to [this cheatsheet](https://github.com/thomaskellough/Personal-Projects/blob/add-css/shiny-css-cheatsheet/cheatsheet.md) that shows a handful of changes that can occur.
+This may be all you need to start stylizing your shiny new Shiny program. However, if you want some more examples of different things you can do to [this cheatsheet](cheatsheet.md) that shows a handful of changes that can occur.
