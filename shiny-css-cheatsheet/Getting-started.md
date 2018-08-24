@@ -1,4 +1,4 @@
-#### The first thing you need to do is create your folder to contain your CSS file. This will be a folder named 'www' inside the same directory as your add.R file. Then you'll create a new text file and re-name it to contain a .css extension. You can now put all of your CSS code inside of this file. To edit the CSS file, simply right-click and click 'edit'. I use Notepad++ for this, but you can edit it with any text editor of your choosing. 
+#### The first thing you need to do is create your folder to contain your CSS file. This will be a folder named 'www' inside the same directory as your app.R file. Then you'll create a new text file and re-name it to contain a .css extension. You can now put all of your CSS code inside of this file. To edit the CSS file, simply right-click and click 'edit'. I use Notepad++ for this, but you can edit it with any text editor of your choosing. 
 
 ![createcssgif](https://user-images.githubusercontent.com/41200583/44587595-0a455f00-a779-11e8-8e17-e53ba567ccf4.gif)
 
