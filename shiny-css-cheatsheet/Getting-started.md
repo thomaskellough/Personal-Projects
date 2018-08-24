@@ -11,7 +11,7 @@
 ![savecss](https://user-images.githubusercontent.com/41200583/44589641-a9b92080-a77e-11e8-8446-bb8e20f01190.gif)
 
 
-#### Using them css file inside your program is very easy. It's only one line of code. Inside your fluidPage, type in 
+#### Using the css file inside your program is very easy. It's only one line of code. Inside your fluidPage, type in 
 
 ```theme = ('customcss.css')```
 
