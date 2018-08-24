@@ -6,7 +6,7 @@ This program is designed to quickly and efficiently analyze student grades. It c
 
 The easiest way to use this program is by going directly my the shinyapps.io website. [Here](https://tkellough.shinyapps.io/grades/) is a direct link. As of right now, this program is free to use with a limited number of individuals. 
 
-You will need either an excel or CSV file to upload in a specific format. You can download my sample files [here](https://github.com/thomaskellough/Personal-Projects/tree/add-css/grades-analyzer/assets).
+You will need either an excel or CSV file to upload in a specific format. You can download my sample files [here](assets).
 
 | Date	    | Student	| Unit	        | Period	| Type	    | Grade	| Weight |
 | --------- | ------- | ------------- | ------- | --------- | ----- | ------ |
@@ -14,7 +14,7 @@ You will need either an excel or CSV file to upload in a specific format. You ca
 | 8/31/2017	| Andy	  | Biochemistry	| 2	      | Homework	| 99    | 15     |
 
 
-The other method is by coping the [source code](https://github.com/thomaskellough/Personal-Projects/blob/add-css/grades-analyzer/app.R) and running it through your R interpreter. Note: you will also need the [CSS](https://github.com/thomaskellough/Personal-Projects/blob/add-css/grades-analyzer/www/custom.css) file and the [logo](https://github.com/thomaskellough/Personal-Projects/blob/add-css/grades-analyzer/www/lhimg.JPG) to run the code. Or you can comment them out in the app.R file. 
+The other method is by coping the [source code](app.R) and running it through your R interpreter. Note: you will also need the [CSS](www/custom.css) file and the [logo](www/lhimg.JPG) to run the code. Or you can comment them out in the app.R file. 
 
 When running the program you should see something similar to this:
 
