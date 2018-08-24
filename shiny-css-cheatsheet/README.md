@@ -8,3 +8,5 @@ The idea of this repository is to quickly edit the styling of your Shiny applica
 [Here](https://github.com/thomaskellough/Personal-Projects/blob/add-css/shiny-css-cheatsheet/Getting-started.md) is the getting started guide. This will show you how to setup your css file and incorporate it into your app.R program.
 
 [Here](https://github.com/thomaskellough/Personal-Projects/blob/add-css/shiny-css-cheatsheet/cheatsheet.md) is the cheatsheet. These are just a few examples of how you can quickly edit things inside your code. 
+
+[Here](https://github.com/thomaskellough/Personal-Projects/tree/master/grades-analyzer) is a project I made using this technique.
