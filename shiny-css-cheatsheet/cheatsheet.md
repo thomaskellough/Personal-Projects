@@ -107,6 +107,6 @@ font-size: 15pt;
 ![capture](https://user-images.githubusercontent.com/41200583/44594410-bb54f500-a78b-11e8-9f04-e150b11bad68.gif)
 
 
-These are a few basic things to get you started. I would recommend looking up some tutorials over CSS to help you fully understand how it all works. But if you don't want to learn it right now, but still want to style your R Shiny project, this is a good alternate solution. The code for this program is [here](https://github.com/thomaskellough/Personal-Projects/blob/add-css/shiny-css-cheatsheet/app.R) and the code for the css file is [here](https://github.com/thomaskellough/Personal-Projects/blob/add-css/shiny-css-cheatsheet/customcss.css).
+These are a few basic things to get you started. I would recommend looking up some tutorials over CSS to help you fully understand how it all works. However, if you don't want to learn it right now, but still want to style your R Shiny project, this is a good alternate solution. The code for this program is [here](https://github.com/thomaskellough/Personal-Projects/blob/add-css/shiny-css-cheatsheet/app.R) and the code for the css file is [here](https://github.com/thomaskellough/Personal-Projects/blob/add-css/shiny-css-cheatsheet/customcss.css).
 
 Happy programming!
