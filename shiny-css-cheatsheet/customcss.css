@@ -1,0 +1,53 @@
+.h2, h2 {
+font-size: 30px;
+color: white;
+font-family: Courier New;
+background: black;
+}
+
+.h3, h3 {
+font-size: 24px;
+color: darkblue;
+font-family: Lucida Console;
+background-color: orange;
+}
+
+html {
+font-size: 10px;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+background-color: lightblue;
+}
+
+.container-fluid {
+padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
+background-color: yellow;
+}
+
+.btn-default {
+color: white;
+background-color: darkred;
+border-color: white;
+}
+
+.row {
+margin-right: -15px;
+margin-left: -15px;
+background-color: pink;
+}
+
+.input-group .form-control:not(:first-child):not(:last-child), 
+.input-group-addon:not(:first-child):not(:last-child), 
+.input-group-btn:not(:first-child):not(:last-child) {
+border-radius: 0;
+font-size: 20pt;
+}
+
+.selectize-control.single .selectize-input.input-active, 
+.selectize-control.single .selectize-input.input-active input {
+cursor: text;
+color: purple;
+font-size: 15pt;
+}
