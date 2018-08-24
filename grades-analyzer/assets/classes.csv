@@ -1,0 +1,621 @@
+﻿Date,Student,Unit,Period,Type,Grade,Weight
+8/30/2017,Andy,Biochemistry,2,Homework,98,15
+8/31/2017,Andy,Biochemistry,2,Homework,99,15
+9/1/2017,Andy,Biochemistry,2,Homework,100,15
+9/2/2017,Andy,Biochemistry,2,Homework,95,15
+9/3/2017,Andy,Biochemistry,2,Homework,100,15
+9/4/2017,Andy,Biochemistry,2,Homework,95,15
+8/31/2017,Andy,Biochemistry,2,Quiz,92,25
+9/2/2017,Andy,Biochemistry,2,Quiz,98,25
+9/4/2017,Andy,Biochemistry,2,Quiz,98,25
+9/4/2017,Andy,Biochemistry,2,Test,98,60
+9/5/2017,Andy,Cells,2,Homework,97,15
+9/6/2017,Andy,Cells,2,Homework,95,15
+9/7/2017,Andy,Cells,2,Homework,97,15
+9/8/2017,Andy,Cells,2,Homework,99,15
+9/6/2017,Andy,Cells,2,Quiz,100,25
+9/8/2017,Andy,Cells,2,Quiz,93,25
+9/9/2017,Andy,Cells,2,Test,99,60
+8/26/2017,Andy,Ecology,2,Homework,97,15
+8/27/2017,Andy,Ecology,2,Homework,95,15
+8/28/2017,Andy,Ecology,2,Homework,99,15
+8/29/2017,Andy,Ecology,2,Homework,95,15
+8/27/2017,Andy,Ecology,2,Quiz,97,25
+8/29/2017,Andy,Ecology,2,Quiz,95,25
+8/29/2017,Andy,Ecology,2,Test,95,60
+8/22/2017,Andy,Intro to Biol,2,Homework,98,15
+8/23/2017,Andy,Intro to Biol,2,Homework,96,15
+8/24/2017,Andy,Intro to Biol,2,Homework,96,15
+8/25/2017,Andy,Intro to Biol,2,Homework,95,15
+8/23/2017,Andy,Intro to Biol,2,Quiz,100,25
+8/25/2017,Andy,Intro to Biol,2,Quiz,95,25
+8/25/2017,Andy,Intro to Biol,2,Test,95,60
+8/30/2017,Angela,Biochemistry,4,Homework,96,15
+8/31/2017,Angela,Biochemistry,4,Homework,98,15
+9/1/2017,Angela,Biochemistry,4,Homework,100,15
+9/2/2017,Angela,Biochemistry,4,Homework,99,15
+9/3/2017,Angela,Biochemistry,4,Homework,97,15
+9/4/2017,Angela,Biochemistry,4,Homework,98,15
+8/31/2017,Angela,Biochemistry,4,Quiz,98,25
+9/2/2017,Angela,Biochemistry,4,Quiz,92,25
+9/4/2017,Angela,Biochemistry,4,Quiz,93,25
+9/4/2017,Angela,Biochemistry,4,Test,98,60
+9/5/2017,Angela,Cells,4,Homework,96,15
+9/6/2017,Angela,Cells,4,Homework,98,15
+9/7/2017,Angela,Cells,4,Homework,97,15
+9/8/2017,Angela,Cells,4,Homework,96,15
+9/6/2017,Angela,Cells,4,Quiz,94,25
+9/8/2017,Angela,Cells,4,Quiz,97,25
+9/9/2017,Angela,Cells,4,Test,96,60
+8/26/2017,Angela,Ecology,4,Homework,96,15
+8/27/2017,Angela,Ecology,4,Homework,95,15
+8/28/2017,Angela,Ecology,4,Homework,96,15
+8/29/2017,Angela,Ecology,4,Homework,95,15
+8/27/2017,Angela,Ecology,4,Quiz,96,25
+8/29/2017,Angela,Ecology,4,Quiz,96,25
+8/29/2017,Angela,Ecology,4,Test,99,60
+8/22/2017,Angela,Intro to Biol,4,Homework,95,15
+8/23/2017,Angela,Intro to Biol,4,Homework,95,15
+8/24/2017,Angela,Intro to Biol,4,Homework,98,15
+8/25/2017,Angela,Intro to Biol,4,Homework,95,15
+8/23/2017,Angela,Intro to Biol,4,Quiz,94,25
+8/25/2017,Angela,Intro to Biol,4,Quiz,91,25
+8/25/2017,Angela,Intro to Biol,4,Test,98,60
+8/30/2017,Creed,Biochemistry,6,Homework,90,15
+8/31/2017,Creed,Biochemistry,6,Homework,96,15
+9/1/2017,Creed,Biochemistry,6,Homework,94,15
+9/2/2017,Creed,Biochemistry,6,Homework,97,15
+9/3/2017,Creed,Biochemistry,6,Homework,96,15
+9/4/2017,Creed,Biochemistry,6,Homework,99,15
+8/31/2017,Creed,Biochemistry,6,Quiz,66,25
+9/2/2017,Creed,Biochemistry,6,Quiz,67,25
+9/4/2017,Creed,Biochemistry,6,Quiz,72,25
+9/4/2017,Creed,Biochemistry,6,Test,80,60
+9/5/2017,Creed,Cells,6,Homework,96,15
+9/6/2017,Creed,Cells,6,Homework,96,15
+9/7/2017,Creed,Cells,6,Homework,92,15
+9/8/2017,Creed,Cells,6,Homework,98,15
+9/6/2017,Creed,Cells,6,Quiz,69,25
+9/8/2017,Creed,Cells,6,Quiz,72,25
+9/9/2017,Creed,Cells,6,Test,82,60
+8/26/2017,Creed,Ecology,6,Homework,99,15
+8/27/2017,Creed,Ecology,6,Homework,94,15
+8/28/2017,Creed,Ecology,6,Homework,92,15
+8/29/2017,Creed,Ecology,6,Homework,99,15
+8/27/2017,Creed,Ecology,6,Quiz,67,25
+8/29/2017,Creed,Ecology,6,Quiz,74,25
+8/29/2017,Creed,Ecology,6,Test,78,60
+8/22/2017,Creed,Intro to Biol,6,Homework,91,15
+8/23/2017,Creed,Intro to Biol,6,Homework,91,15
+8/24/2017,Creed,Intro to Biol,6,Homework,92,15
+8/25/2017,Creed,Intro to Biol,6,Homework,91,15
+8/23/2017,Creed,Intro to Biol,6,Quiz,73,25
+8/25/2017,Creed,Intro to Biol,6,Quiz,71,25
+8/25/2017,Creed,Intro to Biol,6,Test,75,60
+8/30/2017,Dwight,Biochemistry,2,Homework,70,15
+8/31/2017,Dwight,Biochemistry,2,Homework,71,15
+9/1/2017,Dwight,Biochemistry,2,Homework,82,15
+9/2/2017,Dwight,Biochemistry,2,Homework,79,15
+9/3/2017,Dwight,Biochemistry,2,Homework,83,15
+9/4/2017,Dwight,Biochemistry,2,Homework,78,15
+8/31/2017,Dwight,Biochemistry,2,Quiz,68,25
+9/2/2017,Dwight,Biochemistry,2,Quiz,71,25
+9/4/2017,Dwight,Biochemistry,2,Quiz,83,25
+9/4/2017,Dwight,Biochemistry,2,Test,60,60
+9/5/2017,Dwight,Cells,2,Homework,83,15
+9/6/2017,Dwight,Cells,2,Homework,73,15
+9/7/2017,Dwight,Cells,2,Homework,77,15
+9/8/2017,Dwight,Cells,2,Homework,79,15
+9/6/2017,Dwight,Cells,2,Quiz,67,25
+9/8/2017,Dwight,Cells,2,Quiz,82,25
+9/9/2017,Dwight,Cells,2,Test,65,60
+8/26/2017,Dwight,Ecology,2,Homework,82,15
+8/27/2017,Dwight,Ecology,2,Homework,74,15
+8/28/2017,Dwight,Ecology,2,Homework,82,15
+8/29/2017,Dwight,Ecology,2,Homework,80,15
+8/27/2017,Dwight,Ecology,2,Quiz,70,25
+8/29/2017,Dwight,Ecology,2,Quiz,66,25
+8/29/2017,Dwight,Ecology,2,Test,75,60
+8/22/2017,Dwight,Intro to Biol,2,Homework,72,15
+8/23/2017,Dwight,Intro to Biol,2,Homework,83,15
+8/24/2017,Dwight,Intro to Biol,2,Homework,71,15
+8/25/2017,Dwight,Intro to Biol,2,Homework,79,15
+8/23/2017,Dwight,Intro to Biol,2,Quiz,62,25
+8/25/2017,Dwight,Intro to Biol,2,Quiz,69,25
+8/25/2017,Dwight,Intro to Biol,2,Test,70,60
+8/30/2017,Jim,Biochemistry,7,Homework,72,15
+8/31/2017,Jim,Biochemistry,7,Homework,100,15
+9/1/2017,Jim,Biochemistry,7,Homework,74,15
+9/2/2017,Jim,Biochemistry,7,Homework,91,15
+9/3/2017,Jim,Biochemistry,7,Homework,94,15
+9/4/2017,Jim,Biochemistry,7,Homework,75,15
+8/31/2017,Jim,Biochemistry,7,Quiz,77,25
+9/2/2017,Jim,Biochemistry,7,Quiz,82,25
+9/4/2017,Jim,Biochemistry,7,Quiz,77,25
+9/4/2017,Jim,Biochemistry,7,Test,78,60
+9/5/2017,Jim,Cells,7,Homework,90,15
+9/6/2017,Jim,Cells,7,Homework,79,15
+9/7/2017,Jim,Cells,7,Homework,97,15
+9/8/2017,Jim,Cells,7,Homework,71,15
+9/6/2017,Jim,Cells,7,Quiz,89,25
+9/8/2017,Jim,Cells,7,Quiz,82,25
+9/9/2017,Jim,Cells,7,Test,82,60
+8/26/2017,Jim,Ecology,7,Homework,97,15
+8/27/2017,Jim,Ecology,7,Homework,97,15
+8/28/2017,Jim,Ecology,7,Homework,100,15
+8/29/2017,Jim,Ecology,7,Homework,78,15
+8/27/2017,Jim,Ecology,7,Quiz,70,25
+8/29/2017,Jim,Ecology,7,Quiz,81,25
+8/29/2017,Jim,Ecology,7,Test,75,60
+8/22/2017,Jim,Intro to Biol,7,Homework,90,15
+8/23/2017,Jim,Intro to Biol,7,Homework,96,15
+8/24/2017,Jim,Intro to Biol,7,Homework,95,15
+8/25/2017,Jim,Intro to Biol,7,Homework,79,15
+8/23/2017,Jim,Intro to Biol,7,Quiz,77,25
+8/25/2017,Jim,Intro to Biol,7,Quiz,87,25
+8/25/2017,Jim,Intro to Biol,7,Test,80,60
+8/30/2017,Kevin,Biochemistry,4,Homework,75,15
+8/31/2017,Kevin,Biochemistry,4,Homework,76,15
+9/1/2017,Kevin,Biochemistry,4,Homework,76,15
+9/2/2017,Kevin,Biochemistry,4,Homework,76,15
+9/3/2017,Kevin,Biochemistry,4,Homework,71,15
+9/4/2017,Kevin,Biochemistry,4,Homework,78,15
+8/31/2017,Kevin,Biochemistry,4,Quiz,21,25
+9/2/2017,Kevin,Biochemistry,4,Quiz,39,25
+9/4/2017,Kevin,Biochemistry,4,Quiz,39,25
+9/4/2017,Kevin,Biochemistry,4,Test,45,60
+9/5/2017,Kevin,Cells,4,Homework,74,15
+9/6/2017,Kevin,Cells,4,Homework,77,15
+9/7/2017,Kevin,Cells,4,Homework,74,15
+9/8/2017,Kevin,Cells,4,Homework,78,15
+9/6/2017,Kevin,Cells,4,Quiz,21,25
+9/8/2017,Kevin,Cells,4,Quiz,22,25
+9/9/2017,Kevin,Cells,4,Test,60,60
+8/26/2017,Kevin,Ecology,4,Homework,72,15
+8/27/2017,Kevin,Ecology,4,Homework,74,15
+8/28/2017,Kevin,Ecology,4,Homework,74,15
+8/29/2017,Kevin,Ecology,4,Homework,76,15
+8/27/2017,Kevin,Ecology,4,Quiz,51,25
+8/29/2017,Kevin,Ecology,4,Quiz,26,25
+8/29/2017,Kevin,Ecology,4,Test,52,60
+8/22/2017,Kevin,Intro to Biol,4,Homework,80,15
+8/23/2017,Kevin,Intro to Biol,4,Homework,75,15
+8/24/2017,Kevin,Intro to Biol,4,Homework,75,15
+8/25/2017,Kevin,Intro to Biol,4,Homework,77,15
+8/23/2017,Kevin,Intro to Biol,4,Quiz,40,25
+8/25/2017,Kevin,Intro to Biol,4,Quiz,39,25
+8/25/2017,Kevin,Intro to Biol,4,Test,50,60
+8/30/2017,Michael,Biochemistry,1,Homework,87,15
+8/31/2017,Michael,Biochemistry,1,Homework,80,15
+9/1/2017,Michael,Biochemistry,1,Homework,89,15
+9/2/2017,Michael,Biochemistry,1,Homework,99,15
+9/3/2017,Michael,Biochemistry,1,Homework,99,15
+9/4/2017,Michael,Biochemistry,1,Homework,100,15
+8/31/2017,Michael,Biochemistry,1,Quiz,86,25
+9/2/2017,Michael,Biochemistry,1,Quiz,91,25
+9/4/2017,Michael,Biochemistry,1,Quiz,85,25
+9/4/2017,Michael,Biochemistry,1,Test,82,60
+9/5/2017,Michael,Cells,1,Homework,81,15
+9/6/2017,Michael,Cells,1,Homework,83,15
+9/7/2017,Michael,Cells,1,Homework,99,15
+9/8/2017,Michael,Cells,1,Homework,100,15
+9/6/2017,Michael,Cells,1,Quiz,88,25
+9/8/2017,Michael,Cells,1,Quiz,81,25
+9/9/2017,Michael,Cells,1,Test,81,60
+8/26/2017,Michael,Ecology,1,Homework,99,15
+8/27/2017,Michael,Ecology,1,Homework,94,15
+8/28/2017,Michael,Ecology,1,Homework,94,15
+8/29/2017,Michael,Ecology,1,Homework,95,15
+8/27/2017,Michael,Ecology,1,Quiz,80,25
+8/29/2017,Michael,Ecology,1,Quiz,90,25
+8/29/2017,Michael,Ecology,1,Test,80,60
+8/22/2017,Michael,Intro to Biol,1,Homework,83,15
+8/23/2017,Michael,Intro to Biol,1,Homework,93,15
+8/24/2017,Michael,Intro to Biol,1,Homework,99,15
+8/25/2017,Michael,Intro to Biol,1,Homework,88,15
+8/23/2017,Michael,Intro to Biol,1,Quiz,85,25
+8/25/2017,Michael,Intro to Biol,1,Quiz,82,25
+8/25/2017,Michael,Intro to Biol,1,Test,80,60
+8/30/2017,Pam,Biochemistry,7,Homework,100,15
+8/31/2017,Pam,Biochemistry,7,Homework,100,15
+9/1/2017,Pam,Biochemistry,7,Homework,99,15
+9/2/2017,Pam,Biochemistry,7,Homework,100,15
+9/3/2017,Pam,Biochemistry,7,Homework,100,15
+9/4/2017,Pam,Biochemistry,7,Homework,98,15
+8/31/2017,Pam,Biochemistry,7,Quiz,97,25
+9/2/2017,Pam,Biochemistry,7,Quiz,94,25
+9/4/2017,Pam,Biochemistry,7,Quiz,91,25
+9/4/2017,Pam,Biochemistry,7,Test,100,60
+9/5/2017,Pam,Cells,7,Homework,98,15
+9/6/2017,Pam,Cells,7,Homework,100,15
+9/7/2017,Pam,Cells,7,Homework,98,15
+9/8/2017,Pam,Cells,7,Homework,98,15
+9/6/2017,Pam,Cells,7,Quiz,90,25
+9/8/2017,Pam,Cells,7,Quiz,97,25
+9/9/2017,Pam,Cells,7,Test,100,60
+8/26/2017,Pam,Ecology,7,Homework,100,15
+8/27/2017,Pam,Ecology,7,Homework,98,15
+8/28/2017,Pam,Ecology,7,Homework,99,15
+8/29/2017,Pam,Ecology,7,Homework,99,15
+8/27/2017,Pam,Ecology,7,Quiz,94,25
+8/29/2017,Pam,Ecology,7,Quiz,93,25
+8/29/2017,Pam,Ecology,7,Test,99,60
+8/22/2017,Pam,Intro to Biol,7,Homework,99,15
+8/23/2017,Pam,Intro to Biol,7,Homework,98,15
+8/24/2017,Pam,Intro to Biol,7,Homework,98,15
+8/25/2017,Pam,Intro to Biol,7,Homework,100,15
+8/23/2017,Pam,Intro to Biol,7,Quiz,91,25
+8/25/2017,Pam,Intro to Biol,7,Quiz,90,25
+8/25/2017,Pam,Intro to Biol,7,Test,95,60
+8/30/2017,Stanley,Biochemistry,1,Homework,100,15
+8/31/2017,Stanley,Biochemistry,1,Homework,100,15
+9/1/2017,Stanley,Biochemistry,1,Homework,100,15
+9/2/2017,Stanley,Biochemistry,1,Homework,95,15
+9/3/2017,Stanley,Biochemistry,1,Homework,96,15
+9/4/2017,Stanley,Biochemistry,1,Homework,100,15
+8/31/2017,Stanley,Biochemistry,1,Quiz,78,25
+9/2/2017,Stanley,Biochemistry,1,Quiz,80,25
+9/4/2017,Stanley,Biochemistry,1,Quiz,88,25
+9/4/2017,Stanley,Biochemistry,1,Test,85,60
+9/5/2017,Stanley,Cells,1,Homework,90,15
+9/6/2017,Stanley,Cells,1,Homework,93,15
+9/7/2017,Stanley,Cells,1,Homework,93,15
+9/8/2017,Stanley,Cells,1,Homework,95,15
+9/6/2017,Stanley,Cells,1,Quiz,85,25
+9/8/2017,Stanley,Cells,1,Quiz,82,25
+9/9/2017,Stanley,Cells,1,Test,88,60
+8/26/2017,Stanley,Ecology,1,Homework,95,15
+8/27/2017,Stanley,Ecology,1,Homework,91,15
+8/28/2017,Stanley,Ecology,1,Homework,88,15
+8/29/2017,Stanley,Ecology,1,Homework,89,15
+8/27/2017,Stanley,Ecology,1,Quiz,68,25
+8/29/2017,Stanley,Ecology,1,Quiz,50,25
+8/29/2017,Stanley,Ecology,1,Test,70,60
+8/22/2017,Stanley,Intro to Biol,1,Homework,90,15
+8/23/2017,Stanley,Intro to Biol,1,Homework,95,15
+8/24/2017,Stanley,Intro to Biol,1,Homework,100,15
+8/25/2017,Stanley,Intro to Biol,1,Homework,98,15
+8/23/2017,Stanley,Intro to Biol,1,Quiz,70,25
+8/25/2017,Stanley,Intro to Biol,1,Quiz,75,25
+8/25/2017,Stanley,Intro to Biol,1,Test,95,60
+8/30/2017,Toby,Biochemistry,6,Homework,100,15
+8/31/2017,Toby,Biochemistry,6,Homework,99,15
+9/1/2017,Toby,Biochemistry,6,Homework,98,15
+9/2/2017,Toby,Biochemistry,6,Homework,100,15
+9/3/2017,Toby,Biochemistry,6,Homework,100,15
+9/4/2017,Toby,Biochemistry,6,Homework,100,15
+8/31/2017,Toby,Biochemistry,6,Quiz,86,25
+9/2/2017,Toby,Biochemistry,6,Quiz,87,25
+9/4/2017,Toby,Biochemistry,6,Quiz,90,25
+9/4/2017,Toby,Biochemistry,6,Test,95,60
+9/5/2017,Toby,Cells,6,Homework,95,15
+9/6/2017,Toby,Cells,6,Homework,97,15
+9/7/2017,Toby,Cells,6,Homework,96,15
+9/8/2017,Toby,Cells,6,Homework,98,15
+9/6/2017,Toby,Cells,6,Quiz,86,25
+9/8/2017,Toby,Cells,6,Quiz,89,25
+9/9/2017,Toby,Cells,6,Test,90,60
+8/26/2017,Toby,Ecology,6,Homework,99,15
+8/27/2017,Toby,Ecology,6,Homework,97,15
+8/28/2017,Toby,Ecology,6,Homework,96,15
+8/29/2017,Toby,Ecology,6,Homework,99,15
+8/27/2017,Toby,Ecology,6,Quiz,86,25
+8/29/2017,Toby,Ecology,6,Quiz,89,25
+8/29/2017,Toby,Ecology,6,Test,89,60
+8/22/2017,Toby,Intro to Biol,6,Homework,96,15
+8/23/2017,Toby,Intro to Biol,6,Homework,99,15
+8/24/2017,Toby,Intro to Biol,6,Homework,95,15
+8/25/2017,Toby,Intro to Biol,6,Homework,96,15
+8/23/2017,Toby,Intro to Biol,6,Quiz,95,25
+8/25/2017,Toby,Intro to Biol,6,Quiz,89,25
+8/25/2017,Toby,Intro to Biol,6,Test,88,60
+9/12/2017,Andy,Genetics,2,Homework,97,15
+9/13/2017,Andy,Genetics,2,Homework,100,15
+9/14/2017,Andy,Genetics,2,Quiz,91,25
+9/15/2017,Andy,Genetics,2,Homework,93,15
+9/16/2017,Andy,Genetics,2,Homework,89,15
+9/19/2017,Andy,Genetics,2,Quiz,85,25
+9/20/2017,Andy,Genetics,2,Test,90,60
+9/21/2017,Andy,Viruses,2,Homework,99,15
+9/22/2017,Andy,Viruses,2,Homework,95,15
+9/23/2017,Andy,Viruses,2,Quiz,88,25
+9/26/2017,Andy,Viruses,2,Homework,85,15
+9/27/2017,Andy,Viruses,2,Quiz,94,25
+9/28/2017,Andy,Viruses,2,Test,92,60
+9/29/2017,Andy,Prokaryotes,2,Homework,94,15
+9/30/2017,Andy,Prokaryotes,2,Homework,85,15
+10/2/2017,Andy,Prokaryotes,2,Homework,90,15
+10/3/2017,Andy,Prokaryotes,2,Quiz,100,25
+10/4/2017,Andy,Prokaryotes,2,Homework,91,15
+10/5/2017,Andy,Prokaryotes,2,Homework,85,15
+10/6/2017,Andy,Prokaryotes,2,Homework,92,15
+10/9/2017,Andy,Prokaryotes,2,Quiz,86,25
+10/10/2017,Andy,Prokaryotes,2,Test,93,60
+10/11/2017,Andy,Fungi,2,Homework,87,15
+10/12/2017,Andy,Fungi,2,Homework,88,15
+10/13/2017,Andy,Fungi,2,Homework,86,15
+10/16/2017,Andy,Fungi,2,Quiz,90,25
+10/17/2017,Andy,Fungi,2,Test,88,60
+10/18/2017,Andy,Plants,2,Homework,99,15
+10/19/2017,Andy,Plants,2,Homework,94,15
+10/20/2017,Andy,Plants,2,Homework,90,15
+10/21/2017,Andy,Plants,2,Test,98,60
+9/12/2017,Angela,Genetics,4,Homework,98,15
+9/13/2017,Angela,Genetics,4,Homework,93,15
+9/14/2017,Angela,Genetics,4,Quiz,91,25
+9/15/2017,Angela,Genetics,4,Homework,92,15
+9/16/2017,Angela,Genetics,4,Homework,97,15
+9/19/2017,Angela,Genetics,4,Quiz,99,25
+9/20/2017,Angela,Genetics,4,Test,99,60
+9/21/2017,Angela,Viruses,4,Homework,92,15
+9/22/2017,Angela,Viruses,4,Homework,87,15
+9/23/2017,Angela,Viruses,4,Quiz,95,25
+9/26/2017,Angela,Viruses,4,Homework,97,15
+9/27/2017,Angela,Viruses,4,Quiz,89,25
+9/28/2017,Angela,Viruses,4,Test,86,60
+9/29/2017,Angela,Prokaryotes,4,Homework,89,15
+9/30/2017,Angela,Prokaryotes,4,Homework,100,15
+10/2/2017,Angela,Prokaryotes,4,Homework,85,15
+10/3/2017,Angela,Prokaryotes,4,Quiz,99,25
+10/4/2017,Angela,Prokaryotes,4,Homework,86,15
+10/5/2017,Angela,Prokaryotes,4,Homework,85,15
+10/6/2017,Angela,Prokaryotes,4,Homework,92,15
+10/9/2017,Angela,Prokaryotes,4,Quiz,89,25
+10/10/2017,Angela,Prokaryotes,4,Test,89,60
+10/11/2017,Angela,Fungi,4,Homework,88,15
+10/12/2017,Angela,Fungi,4,Homework,85,15
+10/13/2017,Angela,Fungi,4,Homework,85,15
+10/16/2017,Angela,Fungi,4,Quiz,98,25
+10/17/2017,Angela,Fungi,4,Test,95,60
+10/18/2017,Angela,Plants,4,Homework,92,15
+10/19/2017,Angela,Plants,4,Homework,89,15
+10/20/2017,Angela,Plants,4,Homework,85,15
+10/21/2017,Angela,Plants,4,Test,92,60
+9/12/2017,Creed,Genetics,6,Homework,84,15
+9/13/2017,Creed,Genetics,6,Homework,84,15
+9/14/2017,Creed,Genetics,6,Quiz,85,25
+9/15/2017,Creed,Genetics,6,Homework,75,15
+9/16/2017,Creed,Genetics,6,Homework,77,15
+9/19/2017,Creed,Genetics,6,Quiz,84,25
+9/20/2017,Creed,Genetics,6,Test,80,60
+9/21/2017,Creed,Viruses,6,Homework,83,15
+9/22/2017,Creed,Viruses,6,Homework,79,15
+9/23/2017,Creed,Viruses,6,Quiz,75,25
+9/26/2017,Creed,Viruses,6,Homework,77,15
+9/27/2017,Creed,Viruses,6,Quiz,84,25
+9/28/2017,Creed,Viruses,6,Test,82,60
+9/29/2017,Creed,Prokaryotes,6,Homework,75,15
+9/30/2017,Creed,Prokaryotes,6,Homework,83,15
+10/2/2017,Creed,Prokaryotes,6,Homework,78,15
+10/3/2017,Creed,Prokaryotes,6,Quiz,78,25
+10/4/2017,Creed,Prokaryotes,6,Homework,83,15
+10/5/2017,Creed,Prokaryotes,6,Homework,79,15
+10/6/2017,Creed,Prokaryotes,6,Homework,79,15
+10/9/2017,Creed,Prokaryotes,6,Quiz,85,25
+10/10/2017,Creed,Prokaryotes,6,Test,77,60
+10/11/2017,Creed,Fungi,6,Homework,82,15
+10/12/2017,Creed,Fungi,6,Homework,77,15
+10/13/2017,Creed,Fungi,6,Homework,82,15
+10/16/2017,Creed,Fungi,6,Quiz,84,25
+10/17/2017,Creed,Fungi,6,Test,76,60
+10/18/2017,Creed,Plants,6,Homework,79,15
+10/19/2017,Creed,Plants,6,Homework,75,15
+10/20/2017,Creed,Plants,6,Homework,85,15
+10/21/2017,Creed,Plants,6,Test,82,60
+9/12/2017,Dwight,Genetics,2,Homework,75,15
+9/13/2017,Dwight,Genetics,2,Homework,82,15
+9/14/2017,Dwight,Genetics,2,Quiz,85,25
+9/15/2017,Dwight,Genetics,2,Homework,80,15
+9/16/2017,Dwight,Genetics,2,Homework,79,15
+9/19/2017,Dwight,Genetics,2,Quiz,76,25
+9/20/2017,Dwight,Genetics,2,Test,79,60
+9/21/2017,Dwight,Viruses,2,Homework,79,15
+9/22/2017,Dwight,Viruses,2,Homework,78,15
+9/23/2017,Dwight,Viruses,2,Quiz,79,25
+9/26/2017,Dwight,Viruses,2,Homework,77,15
+9/27/2017,Dwight,Viruses,2,Quiz,75,25
+9/28/2017,Dwight,Viruses,2,Test,80,60
+9/29/2017,Dwight,Prokaryotes,2,Homework,76,15
+9/30/2017,Dwight,Prokaryotes,2,Homework,83,15
+10/2/2017,Dwight,Prokaryotes,2,Homework,81,15
+10/3/2017,Dwight,Prokaryotes,2,Quiz,78,25
+10/4/2017,Dwight,Prokaryotes,2,Homework,85,15
+10/5/2017,Dwight,Prokaryotes,2,Homework,85,15
+10/6/2017,Dwight,Prokaryotes,2,Homework,78,15
+10/9/2017,Dwight,Prokaryotes,2,Quiz,79,25
+10/10/2017,Dwight,Prokaryotes,2,Test,81,60
+10/11/2017,Dwight,Fungi,2,Homework,81,15
+10/12/2017,Dwight,Fungi,2,Homework,81,15
+10/13/2017,Dwight,Fungi,2,Homework,78,15
+10/16/2017,Dwight,Fungi,2,Quiz,77,25
+10/17/2017,Dwight,Fungi,2,Test,85,60
+10/18/2017,Dwight,Plants,2,Homework,81,15
+10/19/2017,Dwight,Plants,2,Homework,81,15
+10/20/2017,Dwight,Plants,2,Homework,79,15
+10/21/2017,Dwight,Plants,2,Test,77,60
+9/12/2017,Jim,Genetics,7,Homework,85,15
+9/13/2017,Jim,Genetics,7,Homework,80,15
+9/14/2017,Jim,Genetics,7,Quiz,92,25
+9/15/2017,Jim,Genetics,7,Homework,81,15
+9/16/2017,Jim,Genetics,7,Homework,84,15
+9/19/2017,Jim,Genetics,7,Quiz,86,25
+9/20/2017,Jim,Genetics,7,Test,92,60
+9/21/2017,Jim,Viruses,7,Homework,89,15
+9/22/2017,Jim,Viruses,7,Homework,91,15
+9/23/2017,Jim,Viruses,7,Quiz,80,25
+9/26/2017,Jim,Viruses,7,Homework,86,15
+9/27/2017,Jim,Viruses,7,Quiz,81,25
+9/28/2017,Jim,Viruses,7,Test,83,60
+9/29/2017,Jim,Prokaryotes,7,Homework,83,15
+9/30/2017,Jim,Prokaryotes,7,Homework,87,15
+10/2/2017,Jim,Prokaryotes,7,Homework,83,15
+10/3/2017,Jim,Prokaryotes,7,Quiz,92,25
+10/4/2017,Jim,Prokaryotes,7,Homework,92,15
+10/5/2017,Jim,Prokaryotes,7,Homework,80,15
+10/6/2017,Jim,Prokaryotes,7,Homework,92,15
+10/9/2017,Jim,Prokaryotes,7,Quiz,90,25
+10/10/2017,Jim,Prokaryotes,7,Test,83,60
+10/11/2017,Jim,Fungi,7,Homework,87,15
+10/12/2017,Jim,Fungi,7,Homework,92,15
+10/13/2017,Jim,Fungi,7,Homework,84,15
+10/16/2017,Jim,Fungi,7,Quiz,84,25
+10/17/2017,Jim,Fungi,7,Test,86,60
+10/18/2017,Jim,Plants,7,Homework,92,15
+10/19/2017,Jim,Plants,7,Homework,81,15
+10/20/2017,Jim,Plants,7,Homework,91,15
+10/21/2017,Jim,Plants,7,Test,86,60
+9/12/2017,Kevin,Genetics,4,Homework,72,15
+9/13/2017,Kevin,Genetics,4,Homework,55,15
+9/14/2017,Kevin,Genetics,4,Quiz,65,25
+9/15/2017,Kevin,Genetics,4,Homework,55,15
+9/16/2017,Kevin,Genetics,4,Homework,51,15
+9/19/2017,Kevin,Genetics,4,Quiz,61,25
+9/20/2017,Kevin,Genetics,4,Test,75,60
+9/21/2017,Kevin,Viruses,4,Homework,52,15
+9/22/2017,Kevin,Viruses,4,Homework,74,15
+9/23/2017,Kevin,Viruses,4,Quiz,59,25
+9/26/2017,Kevin,Viruses,4,Homework,59,15
+9/27/2017,Kevin,Viruses,4,Quiz,72,25
+9/28/2017,Kevin,Viruses,4,Test,71,60
+9/29/2017,Kevin,Prokaryotes,4,Homework,52,15
+9/30/2017,Kevin,Prokaryotes,4,Homework,50,15
+10/2/2017,Kevin,Prokaryotes,4,Homework,71,15
+10/3/2017,Kevin,Prokaryotes,4,Quiz,70,25
+10/4/2017,Kevin,Prokaryotes,4,Homework,57,15
+10/5/2017,Kevin,Prokaryotes,4,Homework,73,15
+10/6/2017,Kevin,Prokaryotes,4,Homework,64,15
+10/9/2017,Kevin,Prokaryotes,4,Quiz,73,25
+10/10/2017,Kevin,Prokaryotes,4,Test,63,60
+10/11/2017,Kevin,Fungi,4,Homework,71,15
+10/12/2017,Kevin,Fungi,4,Homework,71,15
+10/13/2017,Kevin,Fungi,4,Homework,66,15
+10/16/2017,Kevin,Fungi,4,Quiz,66,25
+10/17/2017,Kevin,Fungi,4,Test,73,60
+10/18/2017,Kevin,Plants,4,Homework,54,15
+10/19/2017,Kevin,Plants,4,Homework,64,15
+10/20/2017,Kevin,Plants,4,Homework,64,15
+10/21/2017,Kevin,Plants,4,Test,74,60
+9/12/2017,Michael,Genetics,1,Homework,79,15
+9/13/2017,Michael,Genetics,1,Homework,87,15
+9/14/2017,Michael,Genetics,1,Quiz,85,25
+9/15/2017,Michael,Genetics,1,Homework,90,15
+9/16/2017,Michael,Genetics,1,Homework,92,15
+9/19/2017,Michael,Genetics,1,Quiz,79,25
+9/20/2017,Michael,Genetics,1,Test,81,60
+9/21/2017,Michael,Viruses,1,Homework,95,15
+9/22/2017,Michael,Viruses,1,Homework,85,15
+9/23/2017,Michael,Viruses,1,Quiz,93,25
+9/26/2017,Michael,Viruses,1,Homework,85,15
+9/27/2017,Michael,Viruses,1,Quiz,95,25
+9/28/2017,Michael,Viruses,1,Test,87,60
+9/29/2017,Michael,Prokaryotes,1,Homework,94,15
+9/30/2017,Michael,Prokaryotes,1,Homework,88,15
+10/2/2017,Michael,Prokaryotes,1,Homework,79,15
+10/3/2017,Michael,Prokaryotes,1,Quiz,95,25
+10/4/2017,Michael,Prokaryotes,1,Homework,81,15
+10/5/2017,Michael,Prokaryotes,1,Homework,83,15
+10/6/2017,Michael,Prokaryotes,1,Homework,79,15
+10/9/2017,Michael,Prokaryotes,1,Quiz,92,25
+10/10/2017,Michael,Prokaryotes,1,Test,95,60
+10/11/2017,Michael,Fungi,1,Homework,81,15
+10/12/2017,Michael,Fungi,1,Homework,93,15
+10/13/2017,Michael,Fungi,1,Homework,94,15
+10/16/2017,Michael,Fungi,1,Quiz,85,25
+10/17/2017,Michael,Fungi,1,Test,93,60
+10/18/2017,Michael,Plants,1,Homework,88,15
+10/19/2017,Michael,Plants,1,Homework,88,15
+10/20/2017,Michael,Plants,1,Homework,89,15
+10/21/2017,Michael,Plants,1,Test,82,60
+9/12/2017,Pam,Genetics,7,Homework,99,15
+9/13/2017,Pam,Genetics,7,Homework,92,15
+9/14/2017,Pam,Genetics,7,Quiz,93,25
+9/15/2017,Pam,Genetics,7,Homework,95,15
+9/16/2017,Pam,Genetics,7,Homework,91,15
+9/19/2017,Pam,Genetics,7,Quiz,94,25
+9/20/2017,Pam,Genetics,7,Test,93,60
+9/21/2017,Pam,Viruses,7,Homework,92,15
+9/22/2017,Pam,Viruses,7,Homework,91,15
+9/23/2017,Pam,Viruses,7,Quiz,99,25
+9/26/2017,Pam,Viruses,7,Homework,99,15
+9/27/2017,Pam,Viruses,7,Quiz,97,25
+9/28/2017,Pam,Viruses,7,Test,93,60
+9/29/2017,Pam,Prokaryotes,7,Homework,90,15
+9/30/2017,Pam,Prokaryotes,7,Homework,98,15
+10/2/2017,Pam,Prokaryotes,7,Homework,94,15
+10/3/2017,Pam,Prokaryotes,7,Quiz,99,25
+10/4/2017,Pam,Prokaryotes,7,Homework,93,15
+10/5/2017,Pam,Prokaryotes,7,Homework,99,15
+10/6/2017,Pam,Prokaryotes,7,Homework,98,15
+10/9/2017,Pam,Prokaryotes,7,Quiz,100,25
+10/10/2017,Pam,Prokaryotes,7,Test,90,60
+10/11/2017,Pam,Fungi,7,Homework,94,15
+10/12/2017,Pam,Fungi,7,Homework,92,15
+10/13/2017,Pam,Fungi,7,Homework,90,15
+10/16/2017,Pam,Fungi,7,Quiz,99,25
+10/17/2017,Pam,Fungi,7,Test,90,60
+10/18/2017,Pam,Plants,7,Homework,90,15
+10/19/2017,Pam,Plants,7,Homework,95,15
+10/20/2017,Pam,Plants,7,Homework,100,15
+10/21/2017,Pam,Plants,7,Test,100,60
+9/12/2017,Stanley,Genetics,1,Homework,86,15
+9/13/2017,Stanley,Genetics,1,Homework,79,15
+9/14/2017,Stanley,Genetics,1,Quiz,65,25
+9/15/2017,Stanley,Genetics,1,Homework,84,15
+9/16/2017,Stanley,Genetics,1,Homework,69,15
+9/19/2017,Stanley,Genetics,1,Quiz,65,25
+9/20/2017,Stanley,Genetics,1,Test,86,60
+9/21/2017,Stanley,Viruses,1,Homework,82,15
+9/22/2017,Stanley,Viruses,1,Homework,72,15
+9/23/2017,Stanley,Viruses,1,Quiz,78,25
+9/26/2017,Stanley,Viruses,1,Homework,81,15
+9/27/2017,Stanley,Viruses,1,Quiz,72,25
+9/28/2017,Stanley,Viruses,1,Test,86,60
+9/29/2017,Stanley,Prokaryotes,1,Homework,68,15
+9/30/2017,Stanley,Prokaryotes,1,Homework,70,15
+10/2/2017,Stanley,Prokaryotes,1,Homework,78,15
+10/3/2017,Stanley,Prokaryotes,1,Quiz,67,25
+10/4/2017,Stanley,Prokaryotes,1,Homework,84,15
+10/5/2017,Stanley,Prokaryotes,1,Homework,75,15
+10/6/2017,Stanley,Prokaryotes,1,Homework,66,15
+10/9/2017,Stanley,Prokaryotes,1,Quiz,83,25
+10/10/2017,Stanley,Prokaryotes,1,Test,66,60
+10/11/2017,Stanley,Fungi,1,Homework,81,15
+10/12/2017,Stanley,Fungi,1,Homework,66,15
+10/13/2017,Stanley,Fungi,1,Homework,69,15
+10/16/2017,Stanley,Fungi,1,Quiz,76,25
+10/17/2017,Stanley,Fungi,1,Test,85,60
+10/18/2017,Stanley,Plants,1,Homework,69,15
+10/19/2017,Stanley,Plants,1,Homework,79,15
+10/20/2017,Stanley,Plants,1,Homework,74,15
+10/21/2017,Stanley,Plants,1,Test,75,60
+9/12/2017,Toby,Genetics,6,Homework,99,15
+9/13/2017,Toby,Genetics,6,Homework,91,15
+9/14/2017,Toby,Genetics,6,Quiz,96,25
+9/15/2017,Toby,Genetics,6,Homework,82,15
+9/16/2017,Toby,Genetics,6,Homework,94,15
+9/19/2017,Toby,Genetics,6,Quiz,78,25
+9/20/2017,Toby,Genetics,6,Test,98,60
+9/21/2017,Toby,Viruses,6,Homework,73,15
+9/22/2017,Toby,Viruses,6,Homework,97,15
+9/23/2017,Toby,Viruses,6,Quiz,99,25
+9/26/2017,Toby,Viruses,6,Homework,85,15
+9/27/2017,Toby,Viruses,6,Quiz,97,25
+9/28/2017,Toby,Viruses,6,Test,90,60
+9/29/2017,Toby,Prokaryotes,6,Homework,93,15
+9/30/2017,Toby,Prokaryotes,6,Homework,74,15
+10/2/2017,Toby,Prokaryotes,6,Homework,99,15
+10/3/2017,Toby,Prokaryotes,6,Quiz,84,25
+10/4/2017,Toby,Prokaryotes,6,Homework,96,15
+10/5/2017,Toby,Prokaryotes,6,Homework,99,15
+10/6/2017,Toby,Prokaryotes,6,Homework,77,15
+10/9/2017,Toby,Prokaryotes,6,Quiz,81,25
+10/10/2017,Toby,Prokaryotes,6,Test,73,60
+10/11/2017,Toby,Fungi,6,Homework,73,15
+10/12/2017,Toby,Fungi,6,Homework,88,15
+10/13/2017,Toby,Fungi,6,Homework,72,15
+10/16/2017,Toby,Fungi,6,Quiz,80,25
+10/17/2017,Toby,Fungi,6,Test,99,60
+10/18/2017,Toby,Plants,6,Homework,95,15
+10/19/2017,Toby,Plants,6,Homework,82,15
+10/20/2017,Toby,Plants,6,Homework,76,15
+10/21/2017,Toby,Plants,6,Test,85,60
