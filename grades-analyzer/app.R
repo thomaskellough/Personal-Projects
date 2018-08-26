@@ -41,13 +41,13 @@ ui <- fluidPage(
     dashboardBody(
       fluidRow(uiOutput('topbox')),
       fluidRow(
-      tabBox(
-        id = 'tabset1',
-        width = '100%',
-        tabPanel('Grades Graph', plotOutput('individualGraph')),
-        tabPanel('Grades Table', dataTableOutput('summaryDT')),
-        tabPanel('Summary by Unit', plotOutput('summaryBarGraph'), br(), dataTableOutput('summaryUnitDT')),
-        tabPanel('Class Averages', plotOutput('classAverageGraph'), br(), dataTableOutput('classAverageTable'))
+        tabBox(
+          id = 'tabset1',
+          width = '100%',
+          tabPanel('Grades Graph', plotOutput('individualGraph')),
+          tabPanel('Grades Table', dataTableOutput('summaryDT')),
+          tabPanel('Summary by Unit', plotOutput('summaryBarGraph'), br(), dataTableOutput('summaryUnitDT')),
+          tabPanel('Class Averages', plotOutput('classAverageGraph'), br(), dataTableOutput('classAverageTable'))
         )
       )
     )
@@ -56,7 +56,7 @@ ui <- fluidPage(
 
 
 server <- function(input, output, session) {
-
+  
   grades <- reactive({
     req(input$file)
     inFile <- input$file
@@ -75,7 +75,6 @@ server <- function(input, output, session) {
     }
   })
   
-
   findAverages <- function(data, student, period){
     data %>% 
       filter(Student == student, Period == period) %>% 
@@ -87,14 +86,36 @@ server <- function(input, output, session) {
       ungroup()
   }
   
-  output$topbox <- renderUI({
-    req(input$file)
-    box(
-    splitLayout(uiOutput('type'), uiOutput('unit')),
-    solidHeader = T,
-    status = 'success',
-    collapsible = T)
-  })
+  indivdf <- function(){
+    data.frame(grades()) %>% 
+      filter((Student == input$studentVar) & (Period == input$periodVar) & (Type %in% input$typeVar) & (Unit %in% input$unitVar))
+  }
+  
+  indivdfUnit <- function(){
+    indivdf() %>% 
+      group_by(Unit, Type) %>% 
+      mutate(Average = round(mean(Grade), 2)) %>%
+      ungroup() %>% 
+      select(Unit, Type, Average) %>% 
+      unique()
+  }
+  
+  classAvgPlot <- function(){
+    data.frame(grades()) %>% 
+      filter((Period == input$periodVar) & (Type %in% input$typeVar) & (Unit %in% input$unitVar)) %>% 
+      select(Unit, Type, Grade) %>% 
+      unique()
+  }
+  
+  classAvgdf <- function(){
+    data.frame(grades()) %>% 
+      filter((Period == input$periodVar) & (Type %in% input$typeVar) & (Unit %in% input$unitVar)) %>% 
+      group_by(Type, Unit) %>%
+      mutate(Average = round(mean(Grade)), 2) %>% 
+      ungroup() %>% 
+      select(Unit, Type, Average) %>% 
+      unique()
+  }
   
   # Allow student choices to be dependent on Period
   output$periodSelection <- renderUI({
@@ -111,17 +132,25 @@ server <- function(input, output, session) {
                 choices = unique(df[df$Period==input$periodVar, 'Student']))
   })
   
-  # Selection box to display type of grades
+  # Box to hold selection boxes for types of grades
+  output$topbox <- renderUI({
+    req(input$file)
+    box(
+      splitLayout(uiOutput('type'), uiOutput('unit')),
+      solidHeader = T,
+      status = 'success',
+      collapsible = T)
+  })
+  
+  # Selection boxes to display type of grades/units
   output$type <- renderUI({
     df <- data.frame(grades())
     choices <- unique(pull(df, Type))
     checkboxGroupInput(inputId = 'typeVar',
-                label = 'Select Type',
-                choices = choices,
-                selected = choices)
+                       label = 'Select Type',
+                       choices = choices,
+                       selected = choices)
   })
-  
-  # Selection box to display different units
   output$unit <- renderUI({
     df <- data.frame(grades())
     choices <- unique(pull(df, Unit))
@@ -130,7 +159,7 @@ server <- function(input, output, session) {
                        choices = choices,
                        selected = choices)
   })
-
+  
   # Sidebar - Individual Summary
   output$individualSummary <- renderDataTable({
     req(input$studentVar)
@@ -154,15 +183,11 @@ server <- function(input, output, session) {
       filter = 'none'
     )
   })
-
   
   # Tab 1 - Individual Grades Graph
   output$individualGraph <- renderPlot({
-    req(input$studentVar)
-    req(input$periodVar)
-    df <- data.frame(grades())
-    df %>% 
-      filter((Student == input$studentVar) & (Period == input$periodVar) & (Type %in% input$typeVar) & (Unit %in% input$unitVar)) %>% 
+    req(input$file)
+    indivdf() %>% 
       ggplot(aes(x = Date, y = Grade, 
                  color = Type, shape = Unit)) +
       geom_point(size = 4) + 
@@ -175,28 +200,17 @@ server <- function(input, output, session) {
   
   # Tab 2 - Individual Full Data Table
   output$summaryDT <- renderDataTable({
-    req(input$studentVar)
-    req(input$periodVar)
-    df <- data.frame(grades())
+    req(input$file)
     DT::datatable(
-      df %>% 
-        filter((Student == input$studentVar) & (Period == input$periodVar) & (Type %in% input$typeVar) & (Unit %in% input$unitVar)),
+      indivdf(),
       options = list(paging = F),
       rownames = F)
   })
   
   # Tab 3 - Individual Average By Unit Graph
   output$summaryBarGraph <- renderPlot({
-    req(input$studentVar)
-    req(input$periodVar)
-    df <- data.frame(grades())
-    df %>% 
-      filter((Student == input$studentVar) & (Period == input$periodVar) & (Type %in% input$typeVar) & (Unit %in% input$unitVar)) %>% 
-      group_by(Unit, Type) %>% 
-      mutate(Average = round(mean(Grade), 2)) %>%
-      ungroup() %>% 
-      select(Unit, Type, Average) %>% 
-      unique() %>% 
+    req(input$file)
+    indivdfUnit() %>% 
       ggplot(aes(x = Unit, y = Average, fill = Type)) +
       geom_bar(position = 'dodge', stat = 'identity', color = 'black') +
       geom_text(aes(label = Average), 
@@ -211,29 +225,17 @@ server <- function(input, output, session) {
   
   # Tab 3 - Individual Average by Unit Data Table
   output$summaryUnitDT <- renderDataTable({
-    req(input$studentVar)
-    req(input$periodVar)
-    df <- data.frame(grades())
+    req(input$file)
     DT::datatable(
-      df %>% 
-        filter((Student == input$studentVar) & (Period == input$periodVar) & (Type %in% input$typeVar) & (Unit %in% input$unitVar)) %>% 
-        group_by(Unit, Type) %>% 
-        mutate(Average = round(mean(Grade), 2)) %>% 
-        ungroup() %>% 
-        select(Unit, Type, Average) %>% 
-        unique(),
+      indivdfUnit(),
       options = list(paging = F),
       rownames = F)
   })
   
   # Tab 4 - Class Averages by Unit Graph
   output$classAverageGraph <- renderPlot({
-    req(input$periodVar)
-    df <- data.frame(grades())
-    df %>% 
-      filter((Period == input$periodVar) & (Type %in% input$typeVar) & (Unit %in% input$unitVar)) %>% 
-      select(Unit, Type, Grade) %>% 
-      unique() %>% 
+    req(input$periodVar) 
+    classAvgPlot() %>% 
       ggplot(aes(x = Type, y = Grade, fill = Type)) +
       geom_boxplot() +
       coord_flip() +
@@ -246,15 +248,8 @@ server <- function(input, output, session) {
   # Tab 4 - Class Averages by Unit Data Table
   output$classAverageTable <- renderDataTable({
     req(input$periodVar)
-    df <- data.frame(grades())
     DT::datatable(
-      df %>% 
-        filter((Period == input$periodVar) & (Type %in% input$typeVar) & (Unit %in% input$unitVar)) %>% 
-        group_by(Type, Unit) %>%
-        mutate(Average = round(mean(Grade)), 2) %>% 
-        ungroup() %>% 
-        select(Unit, Type, Average) %>% 
-        unique(),
+      classAvgdf(),
       rownames = F,
       options = list(paging = F)
     )
