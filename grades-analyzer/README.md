@@ -4,7 +4,7 @@ This program is designed to quickly and efficiently analyze student grades. It c
 
 ## Getting Started
 
-The easiest way to use this program is by going directly my the shinyapps.io website. [Here](https://tkellough.shinyapps.io/grades/) is a direct link. As of right now, this program is free to use with a limited number of individuals. 
+The easiest way to use this program is by going directly my https://tkellough.shinyapps.io/grades/. As of right now, this program is free to use with a limited number of individuals. 
 
 You will need either an excel or CSV file to upload in a specific format. You can download my sample files [here](assets).
 
@@ -24,7 +24,7 @@ When running the program you should see something similar to this:
 ![capture2](https://user-images.githubusercontent.com/41200583/44597077-17237c00-a794-11e8-981a-1a97cb2e9bc5.JPG)
 ![capture3](https://user-images.githubusercontent.com/41200583/44597084-1a1e6c80-a794-11e8-89ae-65e713213667.JPG)
 
-You can quickly change the period and student with dropdown boxes on the side panel. You can also select which type of grades are shown and which units are shown witht the collapsable box above the graphs/tables. It can take an import from CSV or Excel files.
+You can quickly change the period and student with dropdown boxes on the side panel. You can also select which type of grades are shown and which units are shown witht the collapsable box above the graphs/tables. It can take an import from CSV or Excel files. There is now an option to download plots and CSV files.
 
 ### Prerequisites
 
