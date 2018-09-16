@@ -27,7 +27,7 @@ From the command line:
 pyi-makespec --onefile --windowed --icon=Assets\\icon.ico management_log.py
 ```
 
-Edit the .spec file to look like [management_log.spec](management.log.spec)
+Edit the .spec file to look like [management_log.spec](management_log.spec)
 Then run:
 
 ```
