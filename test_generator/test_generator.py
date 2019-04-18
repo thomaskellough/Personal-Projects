@@ -22,7 +22,7 @@ def display_license():
                 'of the Software, and to permit persons to whom the Software is furnished to do\n'
                 'so, subject to the following conditions:\n\n'
 
-                'The above copyright notice and this permission notice shall be included in all'
+                'The above copyright notice and this permission notice shall be included in all '
                 'copies or substantial portions of the Software.\n\n'
 
                 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n'
@@ -87,12 +87,14 @@ class MyTestGenerator:
         doc = docx.Document()
         doc.add_paragraph(f'Name:\nDate:')
         doc.add_paragraph(f'{filename}').style = 'Title'
+
         for count, (key, value) in enumerate(self.questions_and_answers.items()):
             question = f'{key}'
             mo = image_regex.search(question)
             shuffled = value
             self.not_shuffled_answer_choices.append(value[0])
             random.shuffle(value)
+
             if mo:
                 string_regex = mo.group().replace('(', '')
                 string_regex = string_regex.replace(')', '')
@@ -110,6 +112,7 @@ class MyTestGenerator:
                 paragraph.add_run(paragraph_answers)
 
         doc.add_paragraph('\nAnswer Key\n\n')
+
         for key, value in self.test_key.items():
             paragraph_answer_key = doc.add_paragraph(f'{value}')
             paragraph_answer_key.style = 'List Number'
@@ -137,23 +140,24 @@ layout = [
     [sg.Text('How many questions from the previous unit?'),
      sg.Slider(range=(1, 100), orientation='h', size=(34, 20), default_value=15)],
     [sg.Text('Name of your test: '), sg.InputText()],
-    [sg.Button('Create Test'), sg.Button('2'), sg.Quit()]
+    [sg.Button('Create Test'), sg.Quit()]
    ]
 
-
 window = sg.Window('Random Test Generator').Layout(layout)
+window.SetIcon(os.path.join(os.path.abspath('assets\\icon.ico')))
+
 while True:
     event, values = window.Read()
     if event == 'Create Test':
         try:
-            p.create_random_test(current_unit=values[0][0], current_unit_num_questions=values[1],
-                                 previous_unit_num_questions=values[2])
-            p.write_test(filename=values[3])
+            p.create_random_test(current_unit=values[1][0], current_unit_num_questions=values[2],
+                                 previous_unit_num_questions=values[3])
+            p.write_test(filename=values[4])
             sg.PopupOK('Test created!')
         except IndexError:
-            sg.PopupOK('Please select your current unit')
+            sg.PopupOK('Error!', 'Please select your current unit')
         except ValueError:
-            sg.PopupOK(f'Question numbers out of range.')
+            sg.PopupOK('Error!', f'Question numbers out of range.')
     elif event == 'License':
         display_license()
     elif event == 'Quit' or event == 'Exit' or event is None:
