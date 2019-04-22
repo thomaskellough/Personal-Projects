@@ -81,42 +81,43 @@ class MyTestGenerator:
                     answer_choices.append(answer)
                 self.questions_and_answers.update({question: answer_choices})
 
-    def write_test(self, filename):
-        if filename == '':
-            filename = 'New_Test'
-        doc = docx.Document()
-        doc.add_paragraph(f'Name:\nDate:')
-        doc.add_paragraph(f'{filename}').style = 'Title'
+    def write_test(self, filename, number_of_keys):
+        for i in number_of_keys:
+            filename = f'{filename} ({i})'
+            doc = docx.Document()
+            doc.add_paragraph(f'Name:\nDate:')
+            doc.add_paragraph(f'{filename}').style = 'Title'
 
-        for count, (key, value) in enumerate(self.questions_and_answers.items()):
-            question = f'{key}'
-            mo = image_regex.search(question)
-            shuffled = value
-            self.not_shuffled_answer_choices.append(value[0])
-            random.shuffle(value)
+            for count, (key, value) in enumerate(sorted(self.questions_and_answers.items(), key=lambda x: random.random())):
+                question = f'{key}'
+                mo = image_regex.search(question)
+                shuffled = value
+                self.not_shuffled_answer_choices.append(value[0])
+                random.shuffle(value)
 
-            if mo:
-                string_regex = mo.group().replace('(', '')
-                string_regex = string_regex.replace(')', '')
-                string_regex = f'{string_regex}.png'
-                doc.add_picture(f'{image_path}\\{string_regex}', width=Inches(4.0))
-                paragraph = doc.add_paragraph(f'{question.replace(mo.group(), "(Use the above figure to help with this question)")}\n')
-            else:
-                paragraph = doc.add_paragraph(f'{question}\n')
-            paragraph.style = 'List Number'
+                if mo:
+                    string_regex = mo.group().replace('(', '')
+                    string_regex = string_regex.replace(')', '')
+                    string_regex = f'{string_regex}.png'
+                    doc.add_picture(f'{image_path}\\{string_regex}', width=Inches(4.0))
+                    paragraph = doc.add_paragraph(f'{question.replace(mo.group(), "(Use the above figure to help with this question)")}\n')
+                else:
+                    paragraph = doc.add_paragraph(f'{question}\n')
+                paragraph.style = 'List Number'
 
-            for choice, answer in enumerate(['A', 'B', 'C', 'D', 'E']):
-                if shuffled[choice] == self.not_shuffled_answer_choices[count]:
-                    self.test_key.update({count + 1: answer})
-                paragraph_answers = f'\t{answer}) {shuffled[choice]}\n'
-                paragraph.add_run(paragraph_answers)
+                for choice, answer in enumerate(['A', 'B', 'C', 'D', 'E']):
+                    if shuffled[choice] == self.not_shuffled_answer_choices[count]:
+                        self.test_key.update({count + 1: answer})
+                    paragraph_answers = f'\t{answer}) {shuffled[choice]}\n'
+                    paragraph.add_run(paragraph_answers)
 
-        doc.add_paragraph('\nAnswer Key\n\n')
+            doc.add_paragraph('\nAnswer Key\n\n')
 
-        for key, value in self.test_key.items():
-            paragraph_answer_key = doc.add_paragraph(f'{value}')
-            paragraph_answer_key.style = 'List Number'
-        doc.save(f'{filename}.docx')
+            for key, value in self.test_key.items():
+                paragraph_answer_key = doc.add_paragraph(f'{value}')
+                paragraph_answer_key.style = 'List Number'
+            doc.save(f'{filename}.docx')
+            filename = filename.replace(f'({i})', '').strip()
 
     def create_unique_unit_list(self):
         for row in range(2, self.max_row):
@@ -140,6 +141,7 @@ layout = [
     [sg.Text('How many questions from the previous unit?'),
      sg.Slider(range=(1, 100), orientation='h', size=(34, 20), default_value=15)],
     [sg.Text('Name of your test: '), sg.InputText()],
+    [sg.Text('Number of keys: '), sg.Spin(values=(1, 2, 3, 4), initial_value=1)],
     [sg.Button('Create Test'), sg.Quit()]
    ]
 
@@ -150,10 +152,15 @@ while True:
     event, values = window.Read()
     if event == 'Create Test':
         try:
-            p.create_random_test(current_unit=values[1][0], current_unit_num_questions=values[2],
-                                 previous_unit_num_questions=values[3])
-            p.write_test(filename=values[4])
-            sg.PopupOK('Test created!')
+            if values[4] == '':
+                sg.PopupOK('Please enter a name for your file')
+                continue
+            else:
+                key_list = {1: ['A'], 2: ['A', 'B'], 3: ['A', 'B', 'C'], 4: ['A', 'B', 'C', 'D']}
+                p.create_random_test(current_unit=values[1][0], current_unit_num_questions=values[2],
+                                     previous_unit_num_questions=values[3])
+                p.write_test(filename=values[4], number_of_keys=key_list[int(values[5])])
+                sg.PopupOK('Test created!')
         except IndexError:
             sg.PopupOK('Error!', 'Please select your current unit')
         except ValueError:
