@@ -71,10 +71,11 @@ class MyTestGenerator:
         self.previous_unit = []
         self.not_shuffled_answer_choices = []
 
-    def create_random_test(self, current_unit, current_unit_num_questions, previous_unit_num_questions):
+    def create_random_test(self, current_unit, current_unit_num_questions, previous_unit_num_questions, num_of_question_options):
         current_unit_num_questions = int(current_unit_num_questions)
         previous_unit_num_questions = int(previous_unit_num_questions)
         current_unit = current_unit
+
         for row in range(2, self.max_row + 1):
             if self.sheet_obj.cell(row=row, column=3).value != current_unit:
                 self.previous_unit.append(self.sheet_obj.cell(row=row, column=1).value)
@@ -84,12 +85,7 @@ class MyTestGenerator:
         current_unit_unique_id = random.sample(self.current_unit_list, current_unit_num_questions)
         previous_unit_unique_id = random.sample(self.previous_unit, previous_unit_num_questions)
         all_questions_unique_id = previous_unit_unique_id + current_unit_unique_id
-        for row in all_questions_unique_id:
-            unit = self.sheet_obj.cell(row=row, column=2).value
-            if unit not in self.chapter_distribution.keys():
-                self.chapter_distribution[unit] = 1
-            else:
-                self.chapter_distribution[unit] += 1
+
         for row in range(2, self.max_row + 1):
             answer_choices = []
             if self.sheet_obj.cell(row=row, column=1).value in all_questions_unique_id:
@@ -98,12 +94,15 @@ class MyTestGenerator:
                 for occurrence in [' I.', ' II.', ' III.', ' IV.']:
                     question = question.replace(occurrence, '\n' + occurrence)
 
-                for column in range(5):
+                for column in range(num_of_question_options):
                     answer = self.sheet_obj.cell(row=row, column=column + 5).value
                     answer_choices.append(answer)
                 self.questions_and_answers.update({question: answer_choices})
 
-    def write_test(self, filename, number_of_keys):
+    def write_test(self, filename, number_of_keys, number_of_question_options):
+        if number_of_question_options == 3:
+            for value in self.questions_and_answers.values():
+                print(value)
         for i in number_of_keys:
             filename = f'{filename} ({i})'
             doc = Document()
@@ -127,7 +126,7 @@ class MyTestGenerator:
                     paragraph = doc.add_paragraph(f'{question}\n')
                 paragraph.style = 'List Number'
 
-                for choice, answer in enumerate(['A', 'B', 'C', 'D', 'E']):
+                for choice, answer in enumerate(number_of_question_options):
                     if shuffled[choice] == self.not_shuffled_answer_choices[count]:
                         self.test_key.update({count + 1: answer})
                     paragraph_answers = f'\t{answer}) {shuffled[choice]}\n'
@@ -152,7 +151,7 @@ class MyTestGenerator:
 p = MyTestGenerator()
 sg.ChangeLookAndFeel('Reddit')
 menu_def = [['File', ['Exit']],
-            ['Help', 'License'], ]
+            ['Help', 'License']]
 
 layout = [
     [sg.Menu(menu_def)],
@@ -163,7 +162,8 @@ layout = [
     [sg.Text('How many questions from the previous unit?'),
      sg.Slider(range=(1, 100), orientation='h', size=(34, 20), default_value=15)],
     [sg.Text('Name of your test: '), sg.InputText()],
-    [sg.Text('Number of keys: '), sg.Spin(values=(1, 2, 3, 4), initial_value=1)],
+    [sg.Text('Number of keys: '), sg.Spin(values=(1, 2, 3, 4), initial_value=1), sg.Text('Number of answer options'),
+     sg.Spin(values=(3, 4, 5), initial_value=5)],
     [sg.Button('Create Test'), sg.Quit()]
    ]
 
@@ -179,10 +179,14 @@ while True:
                 continue
             else:
                 key_list = {1: ['A'], 2: ['A', 'B'], 3: ['A', 'B', 'C'], 4: ['A', 'B', 'C', 'D']}
+                question_options = {3: ['A', 'B', 'C'], 4: ['A', 'B', 'C', 'D'], 5: ['A', 'B', 'C', 'D', 'E']}
                 p.create_random_test(current_unit=values[1][0], current_unit_num_questions=values[2],
-                                     previous_unit_num_questions=values[3])
-                p.write_test(filename=values[4], number_of_keys=key_list[int(values[5])])
+                                     previous_unit_num_questions=values[3],
+                                     num_of_question_options=int(values[6]))
+                p.write_test(filename=values[4], number_of_keys=key_list[int(values[5])],
+                             number_of_question_options=question_options[int(values[6])])
                 sg.PopupOK('Test created!')
+                break
         except IndexError:
             sg.PopupOK('Error!', 'Please select your current unit')
         except ValueError:
