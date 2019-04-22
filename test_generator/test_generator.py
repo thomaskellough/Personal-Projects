@@ -1,14 +1,36 @@
 import openpyxl
 import random
-import docx
+from docx import Document
 import re
 import os
+import platform
+import sys
+import tkinter as tk
 import PySimpleGUI as sg
 from docx.shared import Inches
+
 
 path = os.path.join(os.path.abspath('test_bank.xlsx'))
 image_path = os.path.join(os.path.abspath('Images'))
 image_regex = re.compile(r'\(Ch_\d\d_\d\d\)')
+
+
+def set_icon(app):
+    if platform.system() == "Windows":
+        app.iconbitmap(resource_path(os.path.join("Assets", "icon.ico")))
+    elif platform.system() == "Linux":
+        imgicon = tk.PhotoImage(file=resource_path(os.path.join("Assets", "icon.gif")))
+        app.tk.call("wm", "iconphoto", app._w, imgicon)
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 
 def display_license():
@@ -84,7 +106,7 @@ class MyTestGenerator:
     def write_test(self, filename, number_of_keys):
         for i in number_of_keys:
             filename = f'{filename} ({i})'
-            doc = docx.Document()
+            doc = Document()
             doc.add_paragraph(f'Name:\nDate:')
             doc.add_paragraph(f'{filename}').style = 'Title'
 
