@@ -155,7 +155,7 @@ menu_def = [['File', ['Exit']],
 
 layout = [
     [sg.Menu(menu_def)],
-    [sg.Text('Random Test Generator')],
+    [sg.Text('Random Test Generator', font=('Helvatica', 20), text_color='MidnightBlue')],
     [sg.Text('Select Current Unit'), sg.Listbox(values=p.create_unique_unit_list(), size=(30, 5))],
     [sg.Text('How many questions from the current unit?'),
      sg.Slider(range=(1, 100), orientation='h', size=(34, 20), default_value=10)],
