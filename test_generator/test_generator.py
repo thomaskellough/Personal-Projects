@@ -1,18 +1,13 @@
-import openpyxl
 import random
-from docx import Document
+import platform
 import re
 import os
-import platform
 import sys
 import tkinter as tk
+import openpyxl
 import PySimpleGUI as sg
+from docx import Document
 from docx.shared import Inches
-
-
-path = os.path.join(os.path.abspath('test_bank.xlsx'))
-image_path = os.path.join(os.path.abspath('Images'))
-image_regex = re.compile(r'\(Ch_\d\d_\d\d\)')
 
 
 def set_icon(app):
@@ -56,6 +51,11 @@ def display_license():
                 'SOFTWARE.')
 
 
+path = os.path.join(os.path.abspath('test_bank.xlsx'))
+image_path = os.path.join(os.path.abspath('Images'))
+image_regex = re.compile(r'\(Ch_[0-9]+_[0-9]+\)')
+
+
 class MyTestGenerator:
     wb_obj = openpyxl.load_workbook(path)
     sheet_obj = wb_obj.active
@@ -65,27 +65,24 @@ class MyTestGenerator:
     def __init__(self):
         self.unique_unit_list = []
         self.questions_and_answers = {}
-        self.chapter_distribution = {}
         self.test_key = {}
         self.current_unit_list = []
-        self.previous_unit = []
+        self.previous_units = []
         self.not_shuffled_answer_choices = []
 
-    def create_random_test(self, current_unit, current_unit_num_questions, previous_unit_num_questions, num_of_question_options):
-        current_unit_num_questions = int(current_unit_num_questions)
-        previous_unit_num_questions = int(previous_unit_num_questions)
-        current_unit = current_unit
-
+    def create_random_test(self, current_unit, current_unit_num_questions, previous_unit_num_questions, num_of_answer_choices):
+        # Create unique value lists based off user selection (current unit & number of questions)
         for row in range(2, self.max_row + 1):
             if self.sheet_obj.cell(row=row, column=3).value != current_unit:
-                self.previous_unit.append(self.sheet_obj.cell(row=row, column=1).value)
+                self.previous_units.append(self.sheet_obj.cell(row=row, column=1).value)
             else:
                 self.current_unit_list.append(self.sheet_obj.cell(row=row, column=1).value)
 
-        current_unit_unique_id = random.sample(self.current_unit_list, current_unit_num_questions)
-        previous_unit_unique_id = random.sample(self.previous_unit, previous_unit_num_questions)
+        current_unit_unique_id = random.sample(self.current_unit_list, int(current_unit_num_questions))
+        previous_unit_unique_id = random.sample(self.previous_units, int(previous_unit_num_questions))
         all_questions_unique_id = previous_unit_unique_id + current_unit_unique_id
 
+        # Create dictionary of questions and answer choices from both unique lists
         for row in range(2, self.max_row + 1):
             answer_choices = []
             if self.sheet_obj.cell(row=row, column=1).value in all_questions_unique_id:
@@ -94,52 +91,53 @@ class MyTestGenerator:
                 for occurrence in [' I.', ' II.', ' III.', ' IV.']:
                     question = question.replace(occurrence, '\n' + occurrence)
 
-                for column in range(num_of_question_options):
+                for column in range(num_of_answer_choices):
                     answer = self.sheet_obj.cell(row=row, column=column + 5).value
                     answer_choices.append(answer)
                 self.questions_and_answers.update({question: answer_choices})
 
-    def write_test(self, filename, number_of_keys, number_of_question_options):
-        if number_of_question_options == 3:
-            for value in self.questions_and_answers.values():
-                print(value)
-        for i in number_of_keys:
-            filename = f'{filename} ({i})'
+    def write_test(self, filename, num_of_answer_keys, num_of_answer_choices):
+        for answer_key in num_of_answer_keys:
+            filename = f'{filename} - {answer_key}'
             doc = Document()
             doc.add_paragraph(f'Name:\nDate:')
             doc.add_paragraph(f'{filename}').style = 'Title'
 
-            for count, (key, value) in enumerate(sorted(self.questions_and_answers.items(), key=lambda x: random.random())):
-                question = f'{key}'
+            # Randomly write both test questions and answers from dictionary
+            for count, (question, answer_choices) in enumerate(sorted(self.questions_and_answers.items(), key=lambda x: random.random())):
+                question = f'{question}'
                 mo = image_regex.search(question)
-                shuffled = value
-                self.not_shuffled_answer_choices.append(value[0])
-                random.shuffle(value)
+                shuffled = answer_choices
+                self.not_shuffled_answer_choices.append(answer_choices[0])
+                random.shuffle(answer_choices)
 
+                # If question needs image, add from image directory
                 if mo:
                     string_regex = mo.group().replace('(', '')
                     string_regex = string_regex.replace(')', '')
                     string_regex = f'{string_regex}.png'
                     doc.add_picture(f'{image_path}\\{string_regex}', width=Inches(4.0))
-                    paragraph = doc.add_paragraph(f'{question.replace(mo.group(), "(Use the above figure to help with this question)")}\n')
+                    paragraph = doc.add_paragraph(
+                        f'{question.replace(mo.group(), "(Use the above figure to help with this question)")}\n')
                 else:
                     paragraph = doc.add_paragraph(f'{question}\n')
                 paragraph.style = 'List Number'
 
-                for choice, answer in enumerate(number_of_question_options):
+                # Randomly write answer choices for each question & create question/answer dictionary
+                for choice, answer in enumerate(num_of_answer_choices):
                     if shuffled[choice] == self.not_shuffled_answer_choices[count]:
                         self.test_key.update({count + 1: answer})
                     paragraph_answers = f'\t{answer}) {shuffled[choice]}\n'
                     paragraph.add_run(paragraph_answers)
 
             doc.add_paragraph('\nAnswer Key\n\n')
-
-            for key, value in self.test_key.items():
-                paragraph_answer_key = doc.add_paragraph(f'{value}')
+            for question, answer_choices in self.test_key.items():
+                paragraph_answer_key = doc.add_paragraph(f'{answer_choices}')
                 paragraph_answer_key.style = 'List Number'
             doc.save(f'{filename}.docx')
-            filename = filename.replace(f'({i})', '').strip()
+            filename = filename.replace(f' - {answer_key}', '').strip()
 
+    # Creates list for user to select the current unit
     def create_unique_unit_list(self):
         for row in range(2, self.max_row):
             unit = self.sheet_obj.cell(row=row, column=3).value
@@ -170,21 +168,32 @@ layout = [
 window = sg.Window('Random Test Generator').Layout(layout)
 window.SetIcon(os.path.join(os.path.abspath('assets\\icon.ico')))
 
+
 while True:
     event, values = window.Read()
+
+    # User inputs from GUI
+    current_unit = values[1][0]
+    current_unit_num_questions = values[2]
+    previous_unit_num_questions = values[3]
+    filename = values[4]
+    num_of_answer_keys = values[5]
+    num_of_answer_choices = values[6]
+
+    key_list = {1: ['A'], 2: ['A', 'B'], 3: ['A', 'B', 'C'], 4: ['A', 'B', 'C', 'D']}
+    answer_choice_options = {3: ['A', 'B', 'C'], 4: ['A', 'B', 'C', 'D'], 5: ['A', 'B', 'C', 'D', 'E']}
+
     if event == 'Create Test':
         try:
-            if values[4] == '':
+            if filename == '':
                 sg.PopupOK('Please enter a name for your file')
                 continue
             else:
-                key_list = {1: ['A'], 2: ['A', 'B'], 3: ['A', 'B', 'C'], 4: ['A', 'B', 'C', 'D']}
-                question_options = {3: ['A', 'B', 'C'], 4: ['A', 'B', 'C', 'D'], 5: ['A', 'B', 'C', 'D', 'E']}
-                p.create_random_test(current_unit=values[1][0], current_unit_num_questions=values[2],
-                                     previous_unit_num_questions=values[3],
-                                     num_of_question_options=int(values[6]))
-                p.write_test(filename=values[4], number_of_keys=key_list[int(values[5])],
-                             number_of_question_options=question_options[int(values[6])])
+                p.create_random_test(current_unit=current_unit, current_unit_num_questions=current_unit_num_questions,
+                                     previous_unit_num_questions=previous_unit_num_questions,
+                                     num_of_answer_choices=int(num_of_answer_choices))
+                p.write_test(filename=filename, num_of_answer_keys=key_list[int(num_of_answer_keys)],
+                             num_of_answer_choices=answer_choice_options[int(num_of_answer_choices)])
                 sg.PopupOK('Test created!')
                 break
         except IndexError:
