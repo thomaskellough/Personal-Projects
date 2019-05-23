@@ -55,6 +55,14 @@ path = os.path.join(os.path.abspath('test_bank.xlsx'))
 image_path = os.path.join(os.path.abspath('Images'))
 image_regex = re.compile(r'\(Ch_[0-9]+_[0-9]+\)')
 
+# Used to write the answer key
+# The index is found from the correct answer dictionary and matched to the correct answer choice
+index_choice_match = {0: "A",
+                      1: "B",
+                      2: "C",
+                      3: "D",
+                      4: "E"}
+
 
 def main():
     class MyTestGenerator:
@@ -65,11 +73,12 @@ def main():
 
         def __init__(self):
             self.unique_unit_list = []
-            self.questions_and_answers = {}
-            self.test_key = {}
+            self.questions_and_answers = {}  # Includes all questions and ALL answer choices for each test
             self.current_unit_list = []
             self.previous_units = []
             self.not_shuffled_answer_choices = []
+            self.question_and_correct_answer = {}
+            self.correct_answer_key = []
 
         def create_random_test(self, current_unit, current_unit_num_questions, previous_unit_num_questions, num_of_answer_choices):
             # Create unique value lists based off user selection (current unit & number of questions)
@@ -96,6 +105,7 @@ def main():
                         answer = self.sheet_obj.cell(row=row, column=column + 5).value
                         answer_choices.append(answer)
                     self.questions_and_answers.update({question: answer_choices})
+                    self.question_and_correct_answer.update({question: answer_choices[0]})
 
         def write_test(self, filename, num_of_answer_keys, num_of_answer_choices):
             for answer_key in num_of_answer_keys:
@@ -112,6 +122,10 @@ def main():
                     self.not_shuffled_answer_choices.append(answer_choices[0])
                     random.shuffle(answer_choices)
 
+                    # Create answer key for each test
+                    correct_answer_index = answer_choices.index(self.question_and_correct_answer[question])
+                    self.correct_answer_key.append(index_choice_match[correct_answer_index])
+
                     # If question needs image, add from image directory
                     if mo:
                         string_regex = mo.group().replace('(', '')
@@ -124,17 +138,17 @@ def main():
                         paragraph = doc.add_paragraph(f'{question}\n')
                     paragraph.style = 'List Number'
 
-                    # Randomly write answer choices for each question & create question/answer dictionary
+                    # Randomly write answer choices for each question
                     for choice, answer in enumerate(num_of_answer_choices):
-                        if shuffled[choice] == self.not_shuffled_answer_choices[count]:
-                            self.test_key.update({count + 1: answer})
                         paragraph_answers = f'\t{answer}) {shuffled[choice]}\n'
                         paragraph.add_run(paragraph_answers)
 
+                # Write answer key at the end of test
                 doc.add_paragraph('\nAnswer Key\n\n')
-                for question, answer_choices in self.test_key.items():
-                    paragraph_answer_key = doc.add_paragraph(f'{answer_choices}')
-                    paragraph_answer_key.style = 'List Number'
+                for i in self.correct_answer_key:
+                    paragraph_answer_key = doc.add_paragraph(i)
+                    paragraph_answer_key.style = "List Number"
+                self.correct_answer_key.clear()
                 doc.save(f'{filename}.docx')
                 filename = filename.replace(f' - {answer_key}', '').strip()
 
@@ -146,7 +160,6 @@ def main():
             self.unique_unit_list = list(dict.fromkeys(self.unique_unit_list))
             return self.unique_unit_list
 
-
     p = MyTestGenerator()
     sg.ChangeLookAndFeel('Reddit')
     menu_def = [['File', ['Exit']],
@@ -157,18 +170,17 @@ def main():
         [sg.Text('Random Test Generator', font=('Helvatica', 20), text_color='MidnightBlue')],
         [sg.Text('Select Current Unit'), sg.Listbox(values=p.create_unique_unit_list(), size=(30, 5))],
         [sg.Text('How many questions from the current unit?'),
-         sg.Slider(range=(1, 100), orientation='h', size=(34, 20), default_value=10)],
-        [sg.Text('How many questions from the previous unit?'),
          sg.Slider(range=(1, 100), orientation='h', size=(34, 20), default_value=15)],
+        [sg.Text('How many questions from the previous unit?'),
+         sg.Slider(range=(1, 100), orientation='h', size=(34, 20), default_value=25)],
         [sg.Text('Name of your test: '), sg.InputText()],
         [sg.Text('Number of keys: '), sg.Spin(values=(1, 2, 3, 4), initial_value=1), sg.Text('Number of answer options'),
-         sg.Spin(values=(3, 4, 5), initial_value=5)],
+         sg.Spin(values=(3, 4, 5), initial_value=4)],
         [sg.Button('Create Test'), sg.Quit()]
        ]
 
     window = sg.Window('Random Test Generator').Layout(layout)
     window.SetIcon(os.path.join(os.path.abspath('assets\\icon.ico')))
-
 
     while True:
         event, values = window.Read()
