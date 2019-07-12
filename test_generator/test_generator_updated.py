@@ -1,5 +1,5 @@
-# This is the updated version that supports subscripts and superscripts. In order to use this file you must also use 
-# simple_xlsx.py which is uploaded to this repository. This addition was completed by Reddit user _DTR_. 
+# This is the updated version that supports subscripts and superscripts. In order to use this file you must also use
+# simple_xlsx.py which is uploaded to this repository. This addition was completed by Reddit user _DTR_.
 # Thanks so much for the help on this!
 
 import random
@@ -59,7 +59,7 @@ def display_license():
 
 path = os.path.join(os.path.abspath('test_bank.xlsx'))
 image_path = os.path.join(os.path.abspath('Images'))
-image_regex = re.compile(r'\(Ch_[0-9]+_[0-9]+\)')
+image_regex = re.compile(r'\(.*\)')
 
 # Used to write the answer key
 # The index is found from the correct answer dictionary and matched to the correct answer choice

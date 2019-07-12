@@ -53,7 +53,7 @@ def display_license():
 
 path = os.path.join(os.path.abspath('test_bank.xlsx'))
 image_path = os.path.join(os.path.abspath('Images'))
-image_regex = re.compile(r'\(Ch_[0-9]+_[0-9]+\)')
+image_regex = re.compile(r'\(.*\)')
 
 # Used to write the answer key
 # The index is found from the correct answer dictionary and matched to the correct answer choice
